@@ -23,7 +23,7 @@ exports.lvlnoon = () => {
 }
 
 exports.noregis = () => {
-	return`*[ 𝐀𝐍𝐃𝐀 𝐁𝐄𝐋𝐔𝐌 𝐓𝐄𝐑𝐃𝐀𝐅𝐓𝐀𝐑 ]*\n_Silahkan Daftar Terlebih Dahulu_\n\n*Cara Daftar ${prefix}Daftar Nama|Umur*\n*Contoh ${prefix}Daftar Ilham|17*`
+	return`*[ ANDA BELUM TERDAFTAR ]*\n_Silahkan Daftar Terlebih Dahulu_\n\n*Cara Daftar ${prefix}Daftar Nama|Umur*\n*Contoh ${prefix}Daftar Ilham|17*`
 }
 
 exports.baned = () => {
@@ -31,7 +31,7 @@ exports.baned = () => {
 }
 
 exports.rediregis = () => {
-	return`*「 𝐒𝐔𝐃𝐀𝐇 𝐓𝐄𝐑𝐃𝐀𝐅𝐓𝐀𝐑 」*\n*_Kamu Sudah Terdaftar Boss_* >_<`
+	return`*「 TERDAFTAR 」*\n*_Kamu Sudah Terdaftar Boss_* >_<`
 }
 
 exports.stikga = () => {
@@ -79,11 +79,11 @@ exports.clears = () => {
 }
 
 exports.pc = () => {
-	return`*「❗」 𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐀𝐒𝐈*\n\nuntuk mengetahui apa kamu sudah terdaftar silahkah check message yang saya kirim \n\nNOTE:\n*jika kamu belum mendapatkan pesan. berarti kamu belum menyimpan nomer bot*`
+	return`*「❗」 REGISTRASI*\n\nuntuk mengetahui apa kamu sudah terdaftar silahkah check message yang saya kirim \n\nNOTE:\n*jika kamu belum mendapatkan pesan. berarti kamu belum menyimpan nomer bot*`
 }
 
 exports.registered = (namaUser, umurUser, serialUser, time, sender, botName) => {
-	return`*「 𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐀𝐒𝐈 𝐁𝐄𝐑𝐇𝐀𝐒𝐈𝐋 」*\nUntuk User Info :\n\n*➸ Nama : ${namaUser}*\n*➸ Nomor : wa.me/${sender.split("@")[0]}*\n*➸ Umur : ${umurUser}*\n*➸ Waktu Pendaftaran : ${time}*\n\n*「 SN 」: ${serialUser}*\n_NOTE : Pergunakan Bot Dengan Cinta_ 🍁`
+	return`*「 REGISTRASI BERHASIL 」*\nUntuk User Info :\n\n*➸ Nama : ${namaUser}*\n*➸ Nomor : wa.me/${sender.split("@")[0]}*\n*➸ Umur : ${umurUser}*\n*➸ Waktu Pendaftaran : ${time}*\n\n*「 SN 」: ${serialUser}*\n_NOTE : Pergunakan Bot Dengan Cinta_ 🍁`
 }
 
 exports.cmdnf = (prefix, command) => {
