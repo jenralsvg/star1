@@ -39,7 +39,6 @@ const brainly = require('brainly-scraper')
 const ffmpeg = require('fluent-ffmpeg')
 const cd = 4.32e+7
 const { removeBackgroundFromImageFile } = require('remove.bg')
-const { bot } = require('./language')
 const vcard = 'BEGIN:VCARD\n'
             + 'VERSION:3.0\n'
             + 'FN:𝐄𝐧𝐳𝐞𝐭 𝐁𝐎𝐓\n' // GANTI NAMA MU
@@ -295,6 +294,31 @@ enzet.on('group-participants-update', async (anu) => {
 			const groupDesc = isGroup ? groupMetadata.desc : ''
             const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : ''
             
+       bot = {
+				wait: '[ WAIT ] Sedang di proses...\n*Loading ]67%*',
+				succes: '* Succes *',
+                lvlon: ' *enable leveling*',
+				lvloff: ' *disable leveling*',
+				lvlnoon: ' *The Level In The Group Has Not Been Activated*\n[] _Level Dalam Group Belum Di Aktifkan_',
+				lvlnul: ' *Your Level Is Still Empty*\n[] _Levelmu Masih Kosong_',
+				levelup: '*  *\n *Nama* : _${pushname}_\n *Nomor* : _wa.me/${sender.split("@")[0]}_\n *Xp* : _${getLevelingXp(sender)}_\n *Level* : _${getLevel}  ${getLevelingLevel(sender)}_',
+					stikga: ' * GAGAL  Coba Ulangi Beberapa Saat Lagi...*',
+					linkga: '* Maaf Link Yang Anda Kirim Tidak Valid*',
+					wrongf: ' *Teks nya mana Boss?*',
+					satukos: ' *Add Parameters [ 1 ] Enable Or [ 0 ] Disable*\n${prefix}${command} [] _Tambah Parameter [ 1 ] Aktifkan atau [ 0 ] Nonaktifkan'
+				},
+				only: {
+					groupo: '*[] Perintah ini hanya bisa di gunakan dalam group!*',
+					ownerg: '*[] Perintah ini hanya bisa di gunakan oleh owner group!*',
+					ownerb: '*[] Perintah ini hanya bisa di gunakan oleh owner bot!*',
+					admin: '*[] Perintah ini hanya bisa di gunakan oleh admin group!*',
+					badmin: '*[] Perintah ini hanya bisa di gunakan ketika bot menjadi admin!*',
+					clears: ' *Clear All Success*',
+                                        noregis: `*[    ]*\n_Silahkan Daftar Terlebih Dahulu_\n\n*Cara Daftar ${prefix}Daftar Nama|Umur*\n*Contoh ${prefix}Daftar Enzet|17*`,
+				rediregis: `*  *\n*_Kamu Sudah Terdaftar Boss_* *_�`,
+               }
+			}     
+                       
 /*
 ]=====> Mohamad Ilham <=====[
 */
@@ -347,7 +371,7 @@ enzet.on('group-participants-update', async (anu) => {
                 if (requiredXp <= getLevelingXp(sender)) {
                     addLevelingLevel(sender, 1)
                     bayarLimit(sender, 3)
-                    await reply(ind.levelup(pushname, sender, getLevelingXp,  getLevel, getLevelingLevel))
+                    await reply(bot.levelup(pushname, sender, getLevelingXp,  getLevel, getLevelingLevel))
                 }
             } catch (err) {
                 console.error(err)
@@ -410,7 +434,7 @@ switch(command) {
 					break
                 case 'groupmenu':
 				if (!isRegistered) return reply(bot.noregis())
-				if (!isGroup) return reply(bot.groupo())			
+				if (!isGroup) return reply(only.groupo())			
 					await costum(groupm(pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered), text, tescuk, cr)
 					break
                 case 'downloadmenu':
@@ -770,8 +794,7 @@ case 'ttp':
                     enzet.sendMessage(from, buffer, image, {quoted: mek, caption: hasil})
 			       break
 case 'daftar':
-				
-                if (isRegistered) return  reply(bot.rediregis())
+                if (isRegistered) return  reply(only.rediregis())
                 if (!q.includes('|')) return  reply(bot.wrongf())
                 const namaUser = q.substring(0, q.botexOf('|') - 0)
                 const umurUser = q.substring(q.lastbotexOf('|') + 1)
@@ -922,7 +945,7 @@ case 'next':
 					case 'hidetag5':
                   
 				if (!isRegistered) return reply(bot.noregis())
-					if (!isGroup) return reply(bot.groupo())
+					if (!isGroup) return reply(only.groupo())
 					var value = body.slice(10)
 					var group = await enzet.groupMetadata(from)
 					var member = group['participants']
@@ -944,7 +967,7 @@ case 'next':
 					case 'hidetag10':
                   
 				if (!isRegistered) return reply(bot.noregis())
-					if (!isGroup) return reply(bot.groupo())
+					if (!isGroup) return reply(only.groupo())
 					var value = body.slice(11)
 					var group = await enzet.groupMetadata(from)
 					var member = group['participants']
@@ -1115,8 +1138,8 @@ break
 */		 
 				case 'welcome':
                   				
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
 					if (args.length < 1) return reply(botsatukos())
 					if (Number(args[0]) === 1) {
 						if (isWelkom) return reply('*Fitur WELCOME Sudah AKTIF Boss*')
@@ -1142,8 +1165,8 @@ enzet.sendMessage(from, lol, image, {quoted: mek})
 break					
                  case 'event':
                                    
-					if (!isGroup) return reply(bot.groupo())
-					if (!isOwner) return reply(bot.ownerb())
+					if (!isGroup) return reply(only.groupo())
+					if (!isOwner) return reply(only.ownerb())
 					if (args.length < 1) return reply(bot.satukos())
 					if (Number(args[0]) === 1) {
 						if (isEventon) return reply('*FITUR EVENT SUDAH AKTIF BOS*')
@@ -1159,8 +1182,8 @@ break
 					}
 					break
                 case 'leveling':
-                if (!isGroup) return reply(bot.groupo())
-                if (!isGroupAdmins) return reply(bot.admin())
+                if (!isGroup) return reply(only.groupo())
+                if (!isGroupAdmins) return reply(only.admin())
                 if (args.length < 1) return reply(bot.satukos())
                 if (args[0] === 1) {
                     if (isLevelingOn) return reply('*fitur level sudah aktif sebelum nya*')
@@ -1177,7 +1200,7 @@ break
 					break
 				case 'simih':
                   				
-					if (!isGroup) return reply(bot.groupo())
+					if (!isGroup) return reply(only.groupo())
 					if (args.length < 1) return reply(`*Add Parameters [ 1 ] Enable Or [ 0 ] Disable*\n[❗] _Tambah Parameter [ 1 ] Aktifkan atau [ 0 ] Nonaktifkan`)
 					if (Number(args[0]) === 1) {
 						if (isSimi) return reply('🎭 *SUDAH AKTIF*')
@@ -1194,8 +1217,8 @@ break
 					break
 				case 'nsfw':
                   				
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
 					if (args.length < 1) return reply(bot.satukos())
 					if (Number(args[0]) === 1) {
 						if (isNsfw) return reply(' *sudah aktif*  !!')
@@ -1212,9 +1235,9 @@ break
 					break
                                 case 'antilinkgrup':
                   				
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
-					if (!isBotGroupAdmins) return reply(bot.badmin())					
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
+					if (!isBotGroupAdmins) return reply(only.badmin())					
 					if (args.length < 1) return reply('ketik 1 untuk mengaktifkan')
 					if (Number(args[0]) === 1) {
 						if (isAntiLink) return reply('EMANG MATI?')
@@ -1236,7 +1259,7 @@ break
 				case 'admin':
                   
 				if (!isRegistered) return reply(bot.noregis())
-					if (!isGroup) return reply(bot.groupo())
+					if (!isGroup) return reply(only.groupo())
 					teks = `*DAFTAR ATASAN GROUP* _${groupMetadata.subject}_\n*TOTAL* : ${groupAdmins.length}\n\n`
 					no = 0
 					for (let admon of groupAdmins) {
@@ -1248,9 +1271,9 @@ break
 					case 'grup':
 					case 'group':
                   					
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
-					if (!isBotGroupAdmins) return reply(bot.badmin())
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
+					if (!isBotGroupAdmins) return reply(only.badmin())
 					if (args[0] === 'buka') {
 					    reply(`*BERHASIL MEMBUKA GROUP*`)
 						enzet.groupSettingChange(from, GroupSettingChange.messageSend, false)
@@ -1261,9 +1284,9 @@ break
 					break
 				case 'add':             
 				if (!isRegistered) return reply(bot.noregis())
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
-					if (!isBotGroupAdmins) return reply(bot.badmin())
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
+					if (!isBotGroupAdmins) return reply(only.badmin())
 					if (args.length < 1) return reply('Yang mau di add siapa?')
 					if (args[0].startsWith('08')) return reply('Gunakan kode bahasa kak')
 					try {
@@ -1277,9 +1300,9 @@ break
 			     	case 'kick':
                   
 				if (!isRegistered) return reply(bot.noregis())
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
-					if (!isBotGroupAdmins) return reply(bot.badmin())
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
+					if (!isBotGroupAdmins) return reply(only.badmin())
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('💤 𝗧𝗮𝗴 𝘁𝗮𝗿𝗴𝗲𝘁 ??𝗮𝗻𝗴 𝗶𝗻𝗴𝗶𝗻 𝗱𝗶 𝘁𝗲𝗻𝗱𝗮𝗻𝗴!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -1298,8 +1321,8 @@ break
                 case 'hidetag':
                                   
                 if (!isRegistered) return reply(bot.noregis())
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
 					var value = body.slice(9)
 					var group = await enzet.groupMetadata(from)
 					var member = group['participants']
@@ -1318,7 +1341,7 @@ break
                                   
                 if (!isRegistered) return reply(bot.noregis())
                 if (!isLevelingOn) return reply(bot.lvlnoon())
-                if (!isGroup) return reply(bot.groupo())
+                if (!isGroup) return reply(only.groupo())
                 const userLevel = getLevelingLevel(sender)
                 const userXp = getLevelingXp(sender)
                 if (userLevel === undefined && userXp === undefined) return reply(bot.lvlnul())
@@ -1333,8 +1356,8 @@ break
                  case 'linkgrup':
                   
 				if (!isRegistered) return reply(bot.noregis())               
-				    if (!isGroup) return reply(bot.groupo())
-				    if (!isBotGroupAdmins) return reply(bot.badmin())
+				    if (!isGroup) return reply(only.groupo())
+				    if (!isBotGroupAdmins) return reply(only.badmin())
 				    linkgc = await enzet.groupInviteCode (from)
 				    yeh = `https://chat.whatsapp.com/${linkgc}\n\nlink Group *${groupName}*`
 				    enzet.sendMessage(from, yeh, text, {quoted: mek})
@@ -1342,8 +1365,8 @@ break
 					break
 				case 'tagall':       
 				if (!isRegistered) return reply(bot.noregis())
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
 					members_id = []
 					teks = (args.length > 1) ? body.slice(8).trim() : ''
 					teks += '\n\n'
@@ -1355,25 +1378,25 @@ break
 					break
            case 'setname':
                 if (!isRegistered) return reply(bot.noregis())           
-                if (!isGroup) return reply(bot.groupo())
-			    if (!isGroupAdmins) return reply(bot.admin())
-				if (!isBotGroupAdmins) return reply(bot.badmin())
+                if (!isGroup) return reply(only.groupo())
+			    if (!isGroupAdmins) return reply(only.admin())
+				if (!isBotGroupAdmins) return reply(only.badmin())
                 enzet.groupUpdateSubject(from, `${body.slice(9)}`)
                 enzet.sendMessage(from, '⟪ SUKSES ⟫ Mengubah Nama Grup', text, {quoted: mek})
 					break
                 case 'setdesc':
                 if (!isRegistered) return reply(bot.noregis())                
-                if (!isGroup) return reply(bot.groupo())
-			    if (!isGroupAdmins) return reply(bot.admin())
-				if (!isBotGroupAdmins) return reply(bot.badmin())
+                if (!isGroup) return reply(only.groupo())
+			    if (!isGroupAdmins) return reply(only.admin())
+				if (!isBotGroupAdmins) return reply(only.badmin())
                 enzet.groupUpdateDescription(from, `${body.slice(9)}`)
                 enzet.sendMessage(from, '⟪ SUKSES ⟫ Mengubah Desk Grup', text, {quoted: mek})
 					break
            case 'demote':
                 if (!isRegistered) return reply(bot.noregis())           
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
-					if (!isBotGroupAdmins) return reply(bot.badmin())
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
+					if (!isBotGroupAdmins) return reply(only.badmin())
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('💤 *𝗧ag 𝘁arget 𝘆ang 𝗶ngin 𝗱i Demote!*')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -1391,9 +1414,9 @@ break
 					break
 				case 'promote':
                 if (!isRegistered) return reply(bot.noregis())				
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
-					if (!isBotGroupAdmins) return reply(bot.badmin())
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
+					if (!isBotGroupAdmins) return reply(only.badmin())
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('𝗧𝗮𝗴 ??𝗮??𝗴𝗲𝘁 𝘆𝗮𝗻𝗴 𝗶𝗻𝗴𝗶𝗻 𝗱𝗶 𝘁𝗲𝗻𝗱𝗮𝗻𝗴!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -1411,9 +1434,9 @@ break
 					break
 				case 'delete':
                 if (!isRegistered) return reply(bot.noregis())				
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
-					if (!isBotGroupAdmins) return reply(bot.badmin())
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
+					if (!isBotGroupAdmins) return reply(only.badmin())
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di jadi admin!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -1430,9 +1453,9 @@ break
 					break
 				case 'hedsot':
                 if (!isRegistered) return reply(bot.noregis())				
-					if (!isGroup) return reply(bot.groupo())
-					if (!isGroupAdmins) return reply(bot.admin())
-					if (!isBotGroupAdmins) return reply(bot.badmin())
+					if (!isGroup) return reply(only.groupo())
+					if (!isGroupAdmins) return reply(only.admin())
+					if (!isBotGroupAdmins) return reply(only.badmin())
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('💤 Tag Target Yang Ingin Di Tendang!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -1452,7 +1475,7 @@ break
                  case 'fitnah':
                   
 				if (!isRegistered) return reply(bot.noregis())
-					if (!isGroup) return reply(bot.groupo())                 
+					if (!isGroup) return reply(only.groupo())                 
 				if (args.length < 1) return reply(`Gini Bos : ${prefix}Fitnah [ @tag|Pesan|Balasanbot ]\nContoh : ${prefix}Fitnah @tagmember|hai|hai juga`)
 				var gh = body.slice(8)
 				mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
@@ -1464,8 +1487,8 @@ break
                       case 'leave':
                             
                       if (!isRegistered) return reply(bot.noregis())           
-                      if (!isGroup) return reply(bot.groupo())
-                      if (!isGroupAdmins) return reply(bot.admin())
+                      if (!isGroup) return reply(only.groupo())
+                      if (!isGroupAdmins) return reply(only.admin())
                       setTimeout( () => {
                       enzet.groupLeave (from) 
                       }, 2000)
@@ -1514,7 +1537,7 @@ break
                 case 'pokemon':
                   
 				if (!isRegistered) return reply(bot.noregis())
-                   if (!isGroup) return reply(bot.groupo())
+                   if (!isGroup) return reply(only.groupo())
                    if (!isNsfw) return reply(bot.nsfwoff())
 					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=pokemon`, {method: 'get'})
 					reply(bot.wait())
@@ -1526,7 +1549,7 @@ break
                 case 'anjing':
                   
 				if (!isRegistered) return reply(bot.noregis())
-                   if (!isGroup) return reply(bot.groupo())
+                   if (!isGroup) return reply(only.groupo())
                    if (!isNsfw) return reply(bot.nsfwoff())
 					anu = await fetchJson(`https://api.fdci.se/rep.php?gambar=anjing`, {method: 'get'})
 					reply(bot.wait())
@@ -1563,7 +1586,7 @@ break
                 case 'husbu':
                   
 				if (!isRegistered) return reply(bot.noregis())
-                   if (!isGroup) return reply(bot.groupo())
+                   if (!isGroup) return reply(only.groupo())
                    if (!isNsfw) return reply(bot.nsfwoff())
 						res = await fetchJson(`https://tobz-api.herokuapp.com/api/husbu?apikey=${TobzKey}`)
 						buffer = await getBuffer(res.image)
@@ -1702,7 +1725,7 @@ break
 */
 				case 'bc':
 					enzet.updatePresence(from, Presence.composing) 
-				     if (!isOwner) return reply(bot.ownerb())
+				     if (!isOwner) return reply(only.ownerb())
 					if (args.length < 1) return reply('.......')
 					anu = await enzet.chats.all()
 					if (isMedia && !mek.message.videoMessage || isQuotedImage) {
@@ -1720,7 +1743,7 @@ break
 					}
 					break
 				case 'bcgc':
-				     if (!isOwner) return reply(bot.ownerb())
+				     if (!isOwner) return reply(only.ownerb())
 					if (args.length < 1) return reply('Teksnya mana bosku >_<')
 					anu = await groupMembers
 					nom = mek.participant
@@ -1739,7 +1762,7 @@ break
 					}
 					break
 					case 'setreply':
-					if (!isOwner) return reply(bot.ownerb())
+					if (!isOwner) return reply(only.ownerb())
                     enzet.updatePresence(from, Presence.composing) 
 					if (args.length < 1) return
 					cr = body.slice(10)
@@ -1747,30 +1770,30 @@ break
 					break
 				case 'setprefix':
 					if (args.length < 1) return
-					if (!isOwner) return reply(bot.ownerb())
+					if (!isOwner) return reply(only.ownerb())
 					prefix = args[0]
 					reply(`*「 SUCCES 」* _Prefix Telah Terganti Menjadi_ ➸ : ${prefix}`)
 					break
 				case 'clearall':
-					if (!isOwner) return reply(bot.ownerb())
+					if (!isOwner) return reply(only.ownerb())
 					anu = await enzet.chats.all()
 					enzet.setMaxListeners(25)
 					for (let _ of anu) {
 						enzet.deleteChat(_.jid)
 					}
-					reply(bot.clears())
+					reply(only.clears())
 					break
 			       case 'block':
 				 enzet.updatePresence(from, Presence.composing) 
 				 enzet.chatRead (from)
-					if (!isGroup) return reply(bot.groupo())
-					if (!isOwner) return reply(bot.ownerb())
+					if (!isGroup) return reply(only.groupo())
+					if (!isOwner) return reply(only.ownerb())
 					enzet.blockUser (`${body.slice(7)}@c.us`, "add")
 					enzet.sendMessage(from, `Perintah Diterima, Memblokir ${body.slice(7)}@c.us`, text)
 					break
                     case 'unblock':
-					if (!isGroup) return reply(bot.groupo())
-					if (!isOwner) return reply(bot.ownerb())
+					if (!isGroup) return reply(only.groupo())
+					if (!isOwner) return reply(only.ownerb())
 				    enzet.blockUser (`${body.slice(9)}@c.us`, "remove")
 					enzet.sendMessage(from, `Perintah Diterima, Membuka ${body.slice(9)}@c.us`, text)
 					break   				
@@ -1783,8 +1806,8 @@ break
 					reply('*Makasih Profil Barunya Bosku* 🦂')
 					break
 				case 'clone':
-					if (!isGroup) return reply(bot.groupo())
-					if (!isOwner) return reply(bot.ownerg())
+					if (!isGroup) return reply(only.groupo())
+					if (!isOwner) return reply(only.ownerg())
 					if (args.length < 1) return reply('💤 *TAG Yang Mau Di CLONE*')
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag cvk')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
@@ -1799,14 +1822,14 @@ break
 					}
 					break
                 case 'ban':
-					if (!isOwner) return reply(bot.ownerb())
+					if (!isOwner) return reply(only.ownerb())
 					bnnd = body.slice(6)
 					ban.push(`${bnnd}@s.whatsapp.net`)
 					fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
 					reply(`Nomor wa.me/${bnnd} telah dibanned !`)
 					break
 				case 'unban':
-					if (!isOwner) return reply(bot.ownerb())
+					if (!isOwner) return reply(only.ownerb())
 					bnnd = body.slice(8)
 					ban.splice(`${bnnd}@s.whatsapp.net`, 1)
 					fs.writeFileSync('./database/user/banned.json', JSON.stringify(ban))
@@ -1864,9 +1887,9 @@ case 'sound7':
 tujuh = fs.readFileSync('./assets/sound7.mp3');
 enzet.sendMessage(from, tujuh, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break				
-if (budy.includes('assalamualaikum') 
-   || budy.includes('assaamualaikum')) {
+if (budy.includes('assalamualaikum')
       reply(`from, './assets/Salam.opus'`)
+  enzet.sendMessage(from, reply, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
           }
 /*
 ]=====> Thanks TO <=====[
@@ -1884,7 +1907,7 @@ if (budy.includes('assalamualaikum')
 			if (isGroup && !isCmd && isSimi && budy != undefined) {
 						console.log(budy)
 						muehe = await simih(budy)
-				//		reply(bot.cmdnf(prefix, command))
+				//		reply(bot(prefix, command))
 					} else {
 						console.log(color('[ERROR]','red'), 'Unregistered Command from', color(sender.split('@')[0]))
 					}
