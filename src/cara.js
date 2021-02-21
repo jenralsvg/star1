@@ -1,45 +1,45 @@
 const cara = (pushname, prefix, botName, ownerName) => { 
-	return `🔰 -----[ *PANDUAN PENGGUNAAN ${botName}* ]----- 🔰
-Hallo, ${pushname} 👋
-Berikut adalah cara penggunaan *${botName}*
+	return `~~[ *PANDUAN ${botName}* ]~~
+Haiii, ${pushname} 👋
+Berikut Adalah Cara Penggunaan *${botName}*
          ────────────────
-Kalo gak paham tuh baca dulu -_-
+Kalo Gak Paham baca Pengguna Bot Di Bawah
          ────────────────
-➸ *${prefix}sticker*
-Kirim gambar/video dengan caption sticker
-➸ *${prefix}ttp*
-Text to sticker contoh : ${prefix}ttp Lann ID
-➸ *${prefix}tts*
-Suara google contoh : ${prefix}tts id Hallo Ramlan
-➸ *${prefix}toimg*
-Reply sticker yang mau dijadiin image
-➸ *${prefix}nulis*
-Untuk menulis dibuku
-➸ *${prefix}stalkig*
-Stalking instagram contoh : ${prefix}stalkig iamramlan_
-➸ *${prefix}quotes*
-Random quotes
-➸ *${prefix}bikinquote*
-Membuat quotes contoh : ${prefix}bikinquote Kamu gay & Ramlan
+➸ *${prefix}Sticker*
+Kirim Gambar/Video Dengan Caption Sticker
+➸ *${prefix}Ttp*
+Text To Sticker Contoh : ${prefix}Ttp HamTra Enzet
+➸ *${prefix}Tts*
+Suara Google Ckntoh : ${prefix}Tts id Hallo bot
+➸ *${prefix}Toimg*
+Reply Sticker Yang Mau Dijadiin Image
+➸ *${prefix}Nulis*
+Untuk Menulis Dibuku
+➸ *${prefix}Stalkig*
+Stalking Instagram Contoh : ${prefix}Stalkig Username IG
+➸ *${prefix}Quotes*
+Random Quotes
+➸ *${prefix}Bikinquote*
+Membuat Quotes Contoh : ${prefix}BikinQuote Hidup Indah|Kata HamTraNzet
 ➸ *${prefix}play*
-Mendownload lagu dari youtube bisa menggunakan text atau link
-➸ *${prefix}yutubdl*
-Mendownload video dari youtube, gunakan link ya kak
-➸ *${prefix}tiktod*
-Mendownload video tiktok, gunakan link kak
-➸ *${prefix}hartatahta*
-Membuat lomgo, contoh : ${prefix}hartatahta Nadia
-➸ *${prefix}pornhub*
-Membuat logo, contoh : ${prefix}pornhub Ramlan & Hub
-Note : untuk logo maker / image maker jika undefined berarti harus memakai &
-➸ *${prefix}fitnah*
-Only grup untuk fitnah orang, contoh : ${prefix}fitnah @tagtarget & Hai & Hai juga
+Mendownload Lagu Dari Youtube Bisa Menggunakan Text Atau Link
+➸ *${prefix}Yutubdl*
+Mendownload Video Dari Youtube, Gunakan Link Ya Boss
+➸ *${prefix}Tiktod*
+Mendownload Video Tiktok, Gunakan Link Boss
+➸ *${prefix}Tahta*
+Membuat Lomgo, Contoh : ${prefix}Tahta Enzet Bot
+➸ *${prefix}Pornhub*
+Membuat Logo, contoh : ${prefix}Pornhub Tobat|Hub
+Note : Untuk Logo Maker / Image Maker Jika undefined Berarti Harus Memakai |
+➸ *${prefix}Fitnah*
+Only Grup Untuk Fitnah Orang, Contoh : ${prefix}Fitnah @tagtarget|Hai|Hai juga
 ➸ *${prefix}mutual*
-Gacha nomor yang ada di database / yang menggunakan bot
+Gacha Nomor Yang Ada Di Database / Yang Menggunakan Bot
          ────────────────
-Note : Sisanya gunain otak kalian aja cape w jelasin :)
+Note : Jika Sudah Di Pahami Ketik ${prefix}Help
          ────────────────
-🔰 -----[ *TUMTOR BY RAMLAN ID* ]----- 🔰
+🔰 -----[ *TUTOR BY HAMTRA ENZET* ]----- 🔰
 `
 }
 
