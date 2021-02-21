@@ -301,7 +301,6 @@ enzet.on('group-participants-update', async (anu) => {
             const isEventon = isGroup ? event.includes(from) : false
             const isRegistered = checkRegisteredUser(sender)
             const isBanned = ban.includes(sender)
-            const isPrem = premium.includes(sender)
             const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
             const isLevelingOn = isGroup ? _leveling.includes(from) : false
 			const isGroupAdmins = groupAdmins.includes(sender) || false
@@ -1691,7 +1690,7 @@ break
 case 'cloudtext':
                   
 				if (!isRegistered) return reply(bot.noregis())
-if (args.length < 1) return reply(`「❗」Contoh : ${prefix}cloudtext Ramlan`)
+if (args.length < 1) return reply(`「❗」Contoh : ${prefix}cloudtext Putra`)
 cloud = body.slice(11)
 reply(bot.wait())
 buffer = await getBuffer(`https://api.xteam.xyz/textpro/cloudtext?text=${cloud}&APIKEY=${XteamKey}`)
