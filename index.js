@@ -727,7 +727,6 @@ case 'ttp':
 						enzet.sendMessage(from, ilham, sticker, {quoted: mek})
 					break
 				case 'toimg':
-				
 				if (!isRegistered) return reply(bot.noregis())
 				if (!isQuotedSticker) return reply('Reply Atau Tag Sticker Yang Mau Dijadiin Gambar Boss >_<')
 					reply(bot.wait())
@@ -740,6 +739,7 @@ case 'ttp':
 						buffer = fs.readFileSync(ran)
 						enzet.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih Boss [(^.^)]'})
 						fs.unlinkSync(ran)
+						})
 					break
                 case 'speed':
                 case 'ping':
