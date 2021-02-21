@@ -185,6 +185,77 @@ const getLevelingXp = (sender) => {
             return status
         }
         
+        const addATM = (sender) => {
+        	const obj = {id: sender, uang : 0}
+            uang.push(obj)
+            fs.writeFileSync('./database/user/uang.json', JSON.stringify(uang))
+        }
+        
+        const addKoinUser = (sender, amount) => {
+            let position = false
+            Object.keys(uang).forEach((i) => {
+                if (uang[i].id === sender) {
+                    position = i
+                }
+            })
+            if (position !== false) {
+                uang[position].uang += amount
+                fs.writeFileSync('./database/user/uang.json', JSON.stringify(uang))
+            }
+        }
+        
+        const checkATMuser = (sender) => {
+        	let position = false
+            Object.keys(uang).forEach((i) => {
+                if (uang[i].id === sender) {
+                    position = i
+                }
+            })
+            if (position !== false) {
+                return uang[position].uang
+            }
+        }
+        
+        const bayarLimit = (sender, amount) => {
+        	let position = false
+            Object.keys(_limit).forEach((i) => {
+                if (_limit[i].id === sender) {
+                    position = i
+                }
+            })
+            if (position !== false) {
+                _limit[position].limit -= amount
+                fs.writeFileSync('./database/user/limit.json', JSON.stringify(_limit))
+            }
+        }
+        	
+        const confirmATM = (sender, amount) => {
+        	let position = false
+            Object.keys(uang).forEach((i) => {
+                if (uang[i].id === sender) {
+                    position = i
+                }
+            })
+            if (position !== false) {
+                uang[position].uang -= amount
+                fs.writeFileSync('./database/user/uang.json', JSON.stringify(uang))
+            }
+        }
+        
+         const limitAdd = (sender) => {
+             let position = false
+            Object.keys(_limit).forEach((i) => {
+                if (_limit[i].id == sender) {
+                    position = i
+                }
+            })
+            if (position !== false) {
+                _limit[position].limit += 1
+                fs.writeFileSync('./database/user/limit.json', JSON.stringify(_limit))
+            }
+        }
+             
+        
 function kyun(seconds){
   function pad(s){
     return (s < 10 ? '0' : '') + s;
@@ -199,24 +270,25 @@ function kyun(seconds){
 /*
 ]=====> SCAN QR <=====[
 */
+
 const enzet = new WAConnection()
 enzet.logger.level = 'warn'
 console.log(banner.string)
    enzet.on('qr', qr => {
    qrcode.generate(qr, { small: true })
-	console.log(color('[','white'), color('!','red'), color(']','white'), color('Scan Code QR Nya Bos'))
+	console.log(color('[','white'), color('!','red'), color(']','white'), color(' Scan the qr code above'))
 })
 
 	enzet.on('credentials-updated', () => {
 		fs.writeFileSync('./Ilham.json', JSON.stringify(enzet.base64EncodedAuthInfo(), null, '\t'))
-		info('2', 'Login Info Updated...')
+		info('2', 'ingfokan cuyy...')
 	})
-	fs.existsSync('./Ilham.json') && enzet.loadAuthInfo('./Ilham.json')
+	fs.existsSync('./Ramlan.json') && enzet.loadAuthInfo('./Ilham.json')
 	enzet.on('connecting', () => {
-		start('2', 'JRL Svg Connecting...')
+		start('2', 'JRL Enzet Connecting...')
 	})
 	enzet.on('open', () => {
-		success('2', 'JRL Svg Connected')
+		success('2', 'JRL Enzet Connecting')
 	})
 	enzet.connect({timeoutMs: 30*1000})
 
@@ -232,19 +304,19 @@ enzet.on('group-participants-update', async (anu) => {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Selamat Bergabung Di Grup\n*${mdata.subject}*\nHai@${num.split('@')[0]}\nKetik ${prefix}Help Untuk Menampilkan Fiture\n *Dari Bot JRL Svg*\n\n _Terimah Kasih Telah Join_`
+				teks = `Selamat Bergabung Di Grup\n*${mdata.subject}*\nHai@${num.split('@')[0]}\nKetik ${prefix}Help Untuk Menampilkan Fiture\n *Dari Bot JRL Enzet*\n\n _Terimah Kasih Telah Join_`
 				let buff = await getBuffer(ppimg)
 				enzet.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
-				work = fs.readFileSync('./assets/bergabung.opus');
-                enzet.sendMessage(from, work, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
-			} else if (anu.action == 'remove') {
+			work = fs.readFileSync('./assets/bergabung.opus');
+            enzet.sendMessage(from, work, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+               } else if (anu.action == 'remove') {
 				num = anu.participants[0]
 				try {
 					ppimg = await enzet.getProfilePicture(`${num.split('@')[0]}@c.us`)
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Selamat Tinggal Kawan\n @${num.split('@')[0]}\n\n  *Terimah Kasih Telah Join*`
+				teks = `Selamat Tinggal Kawan\n @${num.split('@')[0]}\n\n  *Terimah Kasih Telah Join*`
 				let buff = await getBuffer(ppimg)
 				enzet.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			}
@@ -294,11 +366,12 @@ enzet.on('group-participants-update', async (anu) => {
             const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : ''
             
 /*
-]=====> MOHAMAD ILHAM <=====[
+]=====> Mohamad Ilham <=====[
 */
             const isEventon = isGroup ? event.includes(from) : false
             const isRegistered = checkRegisteredUser(sender)
             const isBanned = ban.includes(sender)
+            const isPrem = premium.includes(sender)
             const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
             const isLevelingOn = isGroup ? _leveling.includes(from) : false
 			const isGroupAdmins = groupAdmins.includes(sender) || false
@@ -344,13 +417,84 @@ enzet.on('group-participants-update', async (anu) => {
                 addLevelingXp(sender, amountXp)
                 if (requiredXp <= getLevelingXp(sender)) {
                     addLevelingLevel(sender, 1)
-                    await reply(bot.levelup(pushname, sender, getLevelingXp,  getLevel, getLevelingLevel))
+                    bayarLimit(sender, 3)
+                    await reply(ind.levelup(pushname, sender, getLevelingXp,  getLevel, getLevelingLevel))
                 }
             } catch (err) {
                 console.error(err)
             }
         }
+/*
+]=====> CHECK LIMIT BY ILHAM <=====[
+*/
+          const checkLimit = (sender) => {
+          	let found = false
+                    for (let lmt of _limit) {
+                        if (lmt.id === sender) {
+                            let limitCounts = limitawal - lmt.limit
+                            if (limitCounts <= 0) return enzet.sendMessage(from,`Limit anda sudah habis\n\n_Note : limit bisa di dapatkan dengan cara ${prefix}buylimit dan naik level_`, text,{ quoted: mek})
+                            enzet.sendMessage(from, ind.limitcount(limitCounts), text, { quoted : mek})
+                            found = true
+                        }
+                    }
+                    if (found === false) {
+                        let obj = { id: sender, limit: 0 }
+                        _limit.push(obj)
+                        fs.writeFileSync('./database/user/limit.json', JSON.stringify(_limit))
+                        enzet.sendMessage(from, ind.limitcount(limitCounts), text, { quoted : mek})
+                    }
+				}
+				
+/*
+]=====> LIMITED BY ILHAM <=====[
+*/
+           const isLimit = (sender) =>{ 
+		      let position = false
+              for (let i of _limit) {
+              if (i.id === sender) {
+              	let limits = i.limit
+              if (limits >= limitawal ) {
+              	  position = true
+                    enzet.sendMessage(from, ind.limitend(pushname), text, {quoted: mek})
+                    return true
+              } else {
+              	_limit
+                  position = true
+                  return false
+               }
+             }
+           }
+           if (position === false) {
+           	const obj = { id: sender, limit: 0 }
+                _limit.push(obj)
+                fs.writeFileSync('./database/user/limit.json',JSON.stringify(_limit))
+           return false
+       }
+     }
 
+        
+            if (isGroup) {
+				try {
+					const getmemex = groupMembers.length
+					    if (getmemex <= memberlimit) {
+                            enzet.groupLeave(from)
+					    }
+		       } catch (err) { console.error(err)  }
+        }
+      
+/*
+]=====> ATM <=====[
+*/
+            if (isRegistered ) {
+            const checkATM = checkATMuser(sender)
+            try {
+                if (checkATM === undefined) addATM(sender)
+                const uangsaku = Math.floor(Math.random() * 10) + 90
+                addKoinUser(sender, uangsaku)
+            } catch (err) {
+                console.error(err)
+            }
+        }
 // ANTI LINK GRUP
                 if (mesejAnti.includes("://chat.whatsapp.com/")){
 		        if (!isGroup) return
@@ -639,7 +783,6 @@ case 'glitchtext':
 					enzet.sendMessage(from, buffer, image, {quoted: mek})
 					break
 case 'gtawasted'
-                
 				if (!isRegistered) return reply(bot.noregis())
 				var gh = body.slice(11)
 				var wasted = gh.split("|")[0];
@@ -1095,7 +1238,7 @@ break
                 case 'dare':
                 
 				if (!isRegistered) return reply(bot.noregis())      
-					const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot 🤥 setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u baby?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
+					const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot 🤥 setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u enzet?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
 					const der = dare[Math.floor(Math.random() * dare.length)]
 					tod = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
 					enzet.sendMessage(from, tod, image, { quoted: mek, caption: '*Dare*\n\n'+ der })
