@@ -44,7 +44,7 @@ Ket: Aktiv 24 jam
 ## SOSIAL MEDIA ADMIN <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/powerup.gif" width="29px">
 
 * [`WhatsApp Admin `](https://wa.me/+6285757196481)
-* [`Group WhatsApp `](https://chat.whatsapp.com/KgUnU7xlLdU2nFXWtqmEdF)
+* [`Group WhatsApp `](https://chat.whatsapp.com/I0ASKkgD7hg9sOS4kc2kho)
 ## THANKS TO <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Handshake.gif" width="60px">
 
 * [`ALLAH SWT`]
