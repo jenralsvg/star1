@@ -61,7 +61,7 @@ const {
     botPrefix,
     CeerTod
 } = ngonsol
-// POWERED BY MOHAMAD ILHAM
+// POWERED BY ILHAM ENZET
 prefix = botPrefix
 blocked = []   
 cr = CeerTod
