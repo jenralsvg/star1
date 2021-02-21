@@ -641,7 +641,7 @@ case 'glitchtext':
 					buffer = await getBuffer(`https://api.xteam.xyz/textpro/glitch?text=${gli}&text2=${tch}&APIKEY=${XteamKey}`)
 					enzet.sendMessage(from, buffer, image, {quoted: mek})
 					break
-case 'gtawasted'
+case 'gtawasted':
 				if (!isRegistered) return reply(bot.noregis())
 				var gh = body.slice(11)
 				var wasted = gh.split("|")[0];
@@ -662,7 +662,7 @@ case 'text8bit':
           buffer = await getBuffer(`https://tobz-api.herokuapp.com/api/photooxy?theme=${bit8}&text1=${tobz}&text2=${ganz}&apikey=${TobzKey}`)
           enzet.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nii Boss'})
           break
-case 'nickepep'
+case 'nickepep':
                 
 				if (!isRegistered) return reply(bot.noregis())
             hamenzet = await fetchJson(`https://api.zeks.xyz/api/nickepep?apikey=${TobzKey}`)
