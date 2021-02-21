@@ -1,1 +1,1 @@
-
+exports.bot = require('./bot')
