@@ -17,4 +17,4 @@ Haiii,  ${pushname} 👋
 Jika Anda Ingin Request Fiture Baru Untuk Bot Ini,
 Silahkan Ketik ${prefix}Request  _Text Anda_`
 }
-exports.vip = vip
+exports.muslim = muslim
