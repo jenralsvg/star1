@@ -59,7 +59,7 @@ const {
     itsmeiky633,
     ownerNumber,
     botPrefix,
-    CeerTod,
+    CeerTod
 } = ngonsol
 // POWERED BY MOHAMAD ILHAM
 prefix = botPrefix
@@ -662,7 +662,7 @@ case 'gtawasted'
 				var wasted = gh.split("|")[0];
 				var wasted2 = gh.split("|")[1];
 				if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}GtaWasted Ilham|Putra`)
-            gta = await getBuffer(`https://naufalhoster.xyz/textmaker/gta_wasted?apikey=WAWVf9-pfqjBo-d0gZCF&text1=${wasted}&text2=${wasted2}`)
+            gta = await getBuffer(`https://naufalhoster.xyz/textmaker/gta_wasted?apikey=WAWVf9pfqjBod0gZCF&text1=${wasted}&text2=${wasted2}`)
                 enzet.sendMessage(from, gta, image, {quoted: mek, caption: 'Nii Bos'})
                 break
 case 'text8bit':
