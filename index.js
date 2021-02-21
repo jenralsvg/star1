@@ -1145,7 +1145,7 @@ break
                                    
 					if (!isGroup) return reply(bot.groupo())
 					if (!isOwner) return reply(bot.ownerb())
-					if (args.length < 1) return reply(bot.satukos))
+					if (args.length < 1) return reply(bot.satukos())
 					if (Number(args[0]) === 1) {
 						if (isEventon) return reply('*FITUR EVENT SUDAH AKTIF BOS*')
 						event.push(from)
