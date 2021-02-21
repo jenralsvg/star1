@@ -725,7 +725,6 @@ case 'ttp':
 					ilham = await getBuffer(anu.result)
 						if (err) return reply(bot.stikga())
 						enzet.sendMessage(from, ilham, sticker, {quoted: mek})
-					})              
 					break
 				case 'toimg':
 				
@@ -741,7 +740,6 @@ case 'ttp':
 						buffer = fs.readFileSync(ran)
 						enzet.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih Boss [(^.^)]'})
 						fs.unlinkSync(ran)
-					})
 					break
                 case 'speed':
                 case 'ping':
