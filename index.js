@@ -61,7 +61,7 @@ const {
     botPrefix,
     CeerTod
 } = ngonsol
-// POWERED BY ILHAM ENZET
+// POWERED BY MOHAMAD ILHAM
 prefix = botPrefix
 blocked = []   
 cr = CeerTod
@@ -184,76 +184,6 @@ const getLevelingXp = (sender) => {
             })
             return status
         }
-        
-        const addATM = (sender) => {
-        	const obj = {id: sender, uang : 0}
-            uang.push(obj)
-            fs.writeFileSync('./database/user/uang.json', JSON.stringify(uang))
-        }
-        
-        const addKoinUser = (sender, amount) => {
-            let position = false
-            Object.keys(uang).forEach((i) => {
-                if (uang[i].id === sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                uang[position].uang += amount
-                fs.writeFileSync('./database/user/uang.json', JSON.stringify(uang))
-            }
-        }
-        
-        const checkATMuser = (sender) => {
-        	let position = false
-            Object.keys(uang).forEach((i) => {
-                if (uang[i].id === sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                return uang[position].uang
-            }
-        }
-        
-        const bayarLimit = (sender, amount) => {
-        	let position = false
-            Object.keys(_limit).forEach((i) => {
-                if (_limit[i].id === sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                _limit[position].limit -= amount
-                fs.writeFileSync('./database/user/limit.json', JSON.stringify(_limit))
-            }
-        }
-        	
-        const confirmATM = (sender, amount) => {
-        	let position = false
-            Object.keys(uang).forEach((i) => {
-                if (uang[i].id === sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                uang[position].uang -= amount
-                fs.writeFileSync('./database/user/uang.json', JSON.stringify(uang))
-            }
-        }
-        
-         const limitAdd = (sender) => {
-             let position = false
-            Object.keys(_limit).forEach((i) => {
-                if (_limit[i].id == sender) {
-                    position = i
-                }
-            })
-            if (position !== false) {
-                _limit[position].limit += 1
-                fs.writeFileSync('./database/user/limit.json', JSON.stringify(_limit))
-            }
-        }
              
         
 function kyun(seconds){
@@ -281,9 +211,9 @@ console.log(banner.string)
 
 	enzet.on('credentials-updated', () => {
 		fs.writeFileSync('./Ilham.json', JSON.stringify(enzet.base64EncodedAuthInfo(), null, '\t'))
-		info('2', 'ingfokan cuyy...')
+		info('2', 'Login Info Updated...')
 	})
-	fs.existsSync('./Ramlan.json') && enzet.loadAuthInfo('./Ilham.json')
+	fs.existsSync('./Ilham.json') && enzet.loadAuthInfo('./Ilham.json')
 	enzet.on('connecting', () => {
 		start('2', 'JRL Enzet Connecting...')
 	})
@@ -424,77 +354,6 @@ enzet.on('group-participants-update', async (anu) => {
                 console.error(err)
             }
         }
-/*
-]=====> CHECK LIMIT BY ILHAM <=====[
-*/
-          const checkLimit = (sender) => {
-          	let found = false
-                    for (let lmt of _limit) {
-                        if (lmt.id === sender) {
-                            let limitCounts = limitawal - lmt.limit
-                            if (limitCounts <= 0) return enzet.sendMessage(from,`Limit anda sudah habis\n\n_Note : limit bisa di dapatkan dengan cara ${prefix}buylimit dan naik level_`, text,{ quoted: mek})
-                            enzet.sendMessage(from, ind.limitcount(limitCounts), text, { quoted : mek})
-                            found = true
-                        }
-                    }
-                    if (found === false) {
-                        let obj = { id: sender, limit: 0 }
-                        _limit.push(obj)
-                        fs.writeFileSync('./database/user/limit.json', JSON.stringify(_limit))
-                        enzet.sendMessage(from, ind.limitcount(limitCounts), text, { quoted : mek})
-                    }
-				}
-				
-/*
-]=====> LIMITED BY ILHAM <=====[
-*/
-           const isLimit = (sender) =>{ 
-		      let position = false
-              for (let i of _limit) {
-              if (i.id === sender) {
-              	let limits = i.limit
-              if (limits >= limitawal ) {
-              	  position = true
-                    enzet.sendMessage(from, ind.limitend(pushname), text, {quoted: mek})
-                    return true
-              } else {
-              	_limit
-                  position = true
-                  return false
-               }
-             }
-           }
-           if (position === false) {
-           	const obj = { id: sender, limit: 0 }
-                _limit.push(obj)
-                fs.writeFileSync('./database/user/limit.json',JSON.stringify(_limit))
-           return false
-       }
-     }
-
-        
-            if (isGroup) {
-				try {
-					const getmemex = groupMembers.length
-					    if (getmemex <= memberlimit) {
-                            enzet.groupLeave(from)
-					    }
-		       } catch (err) { console.error(err)  }
-        }
-      
-/*
-]=====> ATM <=====[
-*/
-            if (isRegistered ) {
-            const checkATM = checkATMuser(sender)
-            try {
-                if (checkATM === undefined) addATM(sender)
-                const uangsaku = Math.floor(Math.random() * 10) + 90
-                addKoinUser(sender, uangsaku)
-            } catch (err) {
-                console.error(err)
-            }
-        }
 // ANTI LINK GRUP
                 if (mesejAnti.includes("://chat.whatsapp.com/")){
 		        if (!isGroup) return
@@ -559,7 +418,7 @@ switch(command) {
 				if (!isRegistered) return reply(bot.noregis())			
 					await costum(download(pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered), text, tescuk, cr)
 					break
-                case 'randommenu'
+                case 'randommenu':
 				if (!isRegistered) return reply(bot.noregis())			
 					await costum(random(pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered), text, tescuk, cr)
 					break
@@ -579,7 +438,7 @@ switch(command) {
 				if (!isRegistered) return reply(bot.noregis())					
 					await costum(muslim(pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered), text, tescuk, cr)
 					break																			
-                case 'developermenu'		
+                case 'developermenu':	
 		if (!isRegistered) return reply(bot.noregis())				
 					await costum(owb(pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered), text, tescuk, cr)
 					break		
