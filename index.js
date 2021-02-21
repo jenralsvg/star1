@@ -641,7 +641,7 @@ case 'textpro':
 				if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}TextPro HamTraNzet`)
         teks = body.slice(9)
         reply(bot.wait())
-        tek = await getBuffer(`https://mhankbarbar.tech/api/textpro=${teks}
+        tek = await getBuffer(`https://mhankbarbar.tech/api/textpro=${teks}`)
         enzet.sendMessage(from, tek, image, {quoted: mek})
         break
 case 'glitchtext':
