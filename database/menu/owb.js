@@ -1,5 +1,5 @@
-const gabut = (pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered) => {
-	return `🔰 -----[ *HEPPY MENU* ]----- 🔰
+const owb = (pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered) => {
+	return `🔰 -----[ *OWNER MENU* ]----- 🔰
 Haiii,  ${pushname} 👋
   User Bot =  ${sender.split("@")[0]}
 ┏━━━━━━━━━━━━━━━━━━━━┓
@@ -9,21 +9,21 @@ Haiii,  ${pushname} 👋
 ┃│➸ USER ${botName} : ${_registered.length}
 ┃╰───────────────────
 ┃╭───────────────────
-┃│➸ *${prefix}Apakah*
-┃│➸ *${prefix}Bisakah*
-┃│➸ *${prefix}Kapan*
-┃│➸ *${prefix}Hobby*
-┃│➸ *${prefix}Rate*
-┃│➸ *${prefix}Seberapagay*
-┃│➸ *${prefix}Truth*
-┃│➸ *${prefix}Dare*
-┃│➸ *${prefix}Tebakin*
-┃│➸ *${prefix}Caklontong*
-┃│➸ *${prefix}Timer*
-┃│➸ *${prefix}Simi*
+┃│➸ *${prefix}Bc*
+┃│➸ *${prefix}Bcgc*
+┃│➸ *${prefix}Clearall*
+┃│➸ *${prefix}Block*
+┃│➸ *${prefix}Unblock*
+┃│➸ *${prefix}Clone*
+┃│➸ *${prefix}Setppbot*
+┃│➸ *${prefix}Setreply*
+┃│➸ *${prefix}Setprefix*
+┃│➸ *${prefix}Ban*
+┃│➸ *${prefix}Unban*
+┃│➸ *${prefix}Event* 「1/0」
 ┃╰───────────────────
 ┗━━━━━━━━━━━━━━━━━━━━┛
 Jika Anda Ingin Request Fiture Baru Untuk Bot Ini,
 Silahkan Ketik ${prefix}Request  _Text Anda_`
 }
-exports.gabut = gabut
+exports.owb = owb

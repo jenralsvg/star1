@@ -1,7 +1,7 @@
-const gabut = (pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered) => {
-	return `🔰 -----[ *HEPPY MENU* ]----- 🔰
-Haiii,  ${pushname} 👋
-  User Bot =  ${sender.split("@")[0]}
+const download = (pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered) => {
+	return `🔰 -----[ *DOWNLOAD MENU* ]----- 🔰
+Hallo, ${pushname} 👋
+Semoga harimu Menyenangkan User, ${sender.split("@")[0]}
 ┏━━━━━━━━━━━━━━━━━━━━┓
 ┃╭───────────────────
 ┃│➸ NAMA : ${pushname}
@@ -9,21 +9,18 @@ Haiii,  ${pushname} 👋
 ┃│➸ USER ${botName} : ${_registered.length}
 ┃╰───────────────────
 ┃╭───────────────────
-┃│➸ *${prefix}Apakah*
-┃│➸ *${prefix}Bisakah*
-┃│➸ *${prefix}Kapan*
-┃│➸ *${prefix}Hobby*
-┃│➸ *${prefix}Rate*
-┃│➸ *${prefix}Seberapagay*
-┃│➸ *${prefix}Truth*
-┃│➸ *${prefix}Dare*
-┃│➸ *${prefix}Tebakin*
-┃│➸ *${prefix}Caklontong*
-┃│➸ *${prefix}Timer*
-┃│➸ *${prefix}Simi*
+┃│➸ *${prefix}Play*
+┃│➸ *${prefix}Lirik*
+┃│➸ *${prefix}Joox
+┃│➸ *${prefix}Yutubdl*
+┃│➸ *${prefix}Hidetag5*
+┃│➸ *${prefix}Hidetag10*
+┃│➸ *${prefix}Moddroid*
+┃│➸ *${prefix}Happymod*
+┃│➸ *${prefix}Tiktod*
 ┃╰───────────────────
 ┗━━━━━━━━━━━━━━━━━━━━┛
 Jika Anda Ingin Request Fiture Baru Untuk Bot Ini,
 Silahkan Ketik ${prefix}Request  _Text Anda_`
 }
-exports.gabut = gabut
+exports.download = download

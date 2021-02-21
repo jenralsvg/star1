@@ -1,5 +1,5 @@
-const gabut = (pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered) => {
-	return `🔰 -----[ *HEPPY MENU* ]----- 🔰
+const maker = (pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered) => {
+	return `🔰 -----[ *MAKER MENU* ]----- 🔰
 Haiii,  ${pushname} 👋
   User Bot =  ${sender.split("@")[0]}
 ┏━━━━━━━━━━━━━━━━━━━━┓
@@ -9,21 +9,23 @@ Haiii,  ${pushname} 👋
 ┃│➸ USER ${botName} : ${_registered.length}
 ┃╰───────────────────
 ┃╭───────────────────
-┃│➸ *${prefix}Apakah*
-┃│➸ *${prefix}Bisakah*
-┃│➸ *${prefix}Kapan*
-┃│➸ *${prefix}Hobby*
-┃│➸ *${prefix}Rate*
-┃│➸ *${prefix}Seberapagay*
-┃│➸ *${prefix}Truth*
-┃│➸ *${prefix}Dare*
-┃│➸ *${prefix}Tebakin*
-┃│➸ *${prefix}Caklontong*
-┃│➸ *${prefix}Timer*
-┃│➸ *${prefix}Simi*
+┃│➸ *${prefix}Tahta*
+┃│➸ *${prefix}GtaWasted*
+┃│➸ *${prefix}Text8Bit*
+┃│➸ *${prefix}TextPro*
+┃│➸ *${prefix}YoutubeText*
+┃│➸ *${prefix}Gemboktext*
+┃│➸ *${prefix}Silktext*
+┃│➸ *${prefix}Neontext*
+┃│➸ *${prefix}Ninjalogo*
+┃│➸ *${prefix}Halloweentext*
+┃│➸ *${prefix}Pornhub*
+┃│➸ *${prefix}Glitchtext*
+┃│➸ *${prefix}Blackpink*
+┃│➸ *${prefix}Cloudtext*
 ┃╰───────────────────
 ┗━━━━━━━━━━━━━━━━━━━━┛
 Jika Anda Ingin Request Fiture Baru Untuk Bot Ini,
 Silahkan Ketik ${prefix}Request  _Text Anda_`
 }
-exports.gabut = gabut
+exports.maker = maker

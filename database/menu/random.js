@@ -1,7 +1,8 @@
-const gabut = (pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered) => {
-	return `🔰 -----[ *HEPPY MENU* ]----- 🔰
+const random = (pushname, prefix, botName, ownerName, getLevelingLevel, sender, _registered) => {
+	return `🔰 -----[ *RANDOM MENU* ]----- 🔰
 Haiii,  ${pushname} 👋
   User Bot =  ${sender.split("@")[0]}
+  
 ┏━━━━━━━━━━━━━━━━━━━━┓
 ┃╭───────────────────
 ┃│➸ NAMA : ${pushname}
@@ -9,21 +10,26 @@ Haiii,  ${pushname} 👋
 ┃│➸ USER ${botName} : ${_registered.length}
 ┃╰───────────────────
 ┃╭───────────────────
-┃│➸ *${prefix}Apakah*
-┃│➸ *${prefix}Bisakah*
-┃│➸ *${prefix}Kapan*
-┃│➸ *${prefix}Hobby*
-┃│➸ *${prefix}Rate*
-┃│➸ *${prefix}Seberapagay*
-┃│➸ *${prefix}Truth*
-┃│➸ *${prefix}Dare*
-┃│➸ *${prefix}Tebakin*
-┃│➸ *${prefix}Caklontong*
-┃│➸ *${prefix}Timer*
-┃│➸ *${prefix}Simi*
+┃│➸ *${prefix}Anjing*
+┃│➸ *${prefix}Bokep*
+┃│➸ *${prefix}Blowjob*
+┃│➸ *${prefix}Darkjokes*
+┃│➸ *${prefix}Nekonime*
+┃│➸ *${prefix}RandomHentong
+┃│➸ *${prefix}Wibu*
+┃│➸ *${prefix}Loli*
+┃│➸ *${prefix}Neko*
+┃│➸ *${prefix}Husbu*
+┃│➸ *${prefix}Kpop*
+┃│➸ *${prefix}Pokemon*
+┃│➸ *${prefix}Mutual*
+┃│➸ *${prefix}Next*
+┃│➸ *${prefix}Nangis*
+┃│➸ *${prefix}Cium*
+┃│➸ *${prefix}Peluk*
 ┃╰───────────────────
 ┗━━━━━━━━━━━━━━━━━━━━┛
 Jika Anda Ingin Request Fiture Baru Untuk Bot Ini,
 Silahkan Ketik ${prefix}Request  _Text Anda_`
 }
-exports.gabut = gabut
+exports.random = random
