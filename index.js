@@ -55,11 +55,11 @@ const {
     XteamKey,
     VhtearKey,
     TobzKey,
-    WAWVf9-pfqjBo-d0gZCF,
+    WAWVf9pfqjBod0gZCF,
     itsmeiky633,
     ownerNumber,
     botPrefix,
-    CeerTod
+    CeerTod,
 } = ngonsol
 // POWERED BY MOHAMAD ILHAM
 prefix = botPrefix
