@@ -1260,9 +1260,8 @@ break
 						enzet.groupSettingChange(from, GroupSettingChange.messageSend, true)
 					}
 					break
-				case 'add':
-                  
-				if (!isRegistered) return reply(bot.noregis()
+				case 'add':             
+				if (!isRegistered) return reply(bot.noregis())
 					if (!isGroup) return reply(bot.groupo())
 					if (!isGroupAdmins) return reply(bot.admin())
 					if (!isBotGroupAdmins) return reply(bot.badmin())
@@ -1342,8 +1341,7 @@ break
 				    enzet.sendMessage(from, yeh, text, {quoted: mek})
 	
 					break
-				case 'tagall':
-                  
+				case 'tagall':       
 				if (!isRegistered) return reply(bot.noregis())
 					if (!isGroup) return reply(bot.groupo())
 					if (!isGroupAdmins) return reply(bot.admin())
@@ -1495,8 +1493,7 @@ break
                 enzet.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', quoted: mek})
                 break			
                 case 'lirik':
-					if (args.length < 1) return reply('Nama lagunya apa kak?')
-                
+					if (args.length < 1) return reply('Nama lagunya apa kak?')          
 				if (!isRegistered) return reply(bot.noregis())
 					tels = body.slice(7)
 					anu = await fetchJson(`https://arugaz.my.id/api/lirik?judul=${tels}`, {method: 'get'})
@@ -1504,10 +1501,8 @@ break
 					break
 					case 'joox':
 			tels = body.slice(6)
-                data = await fetchJson(`https://tobz-api.herokuapp.com/api/joox?q=${tels}&apikey=BotWeA`, {method: 'get'})
-               
+                data = await fetchJson(`https://tobz-api.herokuapp.com/api/joox?q=${tels}&apikey=${TobzKey}`, {method: 'get'})               
 				if (!isRegistered) return reply(bot.noregis())
-               if (data.error) return reply(data.error)
                  infomp3 = `*Lagu Ditemukan!!!*\nJudul : ${data.result.judul}\nAlbum : ${data.result.album}\nDipublikasi : ${data.result.dipublikasi}`
                 buffer = await getBuffer(data.result.thumb)
                 lagu = await getBuffer(data.result.mp3)
