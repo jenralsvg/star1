@@ -37,6 +37,7 @@ const tiktod = require('tiktok-scraper')
 const speed = require('performance-now')
 const brainly = require('brainly-scraper')
 const ffmpeg = require('fluent-ffmpeg')
+const imgbb = require('imgbb-uploader')
 const cd = 4.32e+7
 const { removeBackgroundFromImageFile } = require('remove.bg')
 const vcard = 'BEGIN:VCARD\n'
@@ -430,7 +431,7 @@ quran = `${anu.acak.ar.teks}\n\n${anu.acak.id.teks}\nQ.S ${anu.surat.nama} ayat 
 					if (args.length < 1) return reply('Masukan nama daerah!!')
 					sholat = body.slice(9)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/jadwalshalat?q=${sholat}`, {method: 'get'})
-					reply(mess.wait)
+					reply('[ WAIT ] Lagi Menentukan Waktu Sholat Untuk Hari Ini...')
 					if (anu.error) return reply('[ ! ] Maaf, Daerah yang anda masukan salah!')
 					jsol = `Jadwal sholat di ${sholat} hari ini adalah\n\n* Imsyak :* ${anu.result.imsak} WIB\n* Subuh :* ${anu.result.subuh} WIB\n* Dzuhur :* ${anu.result.dzuhur} WIB\n* Ashar :* ${anu.result.ashar} WIB\n* Maghrib :* ${anu.result.maghrib} WIB\n* Isya :* ${anu.result.isha} WIB\n* Tengah Malam :* ${anu.result.midnight} WIB`
 					enzet.sendMessage(from, jsol, text, {quoted: mek})
@@ -516,7 +517,6 @@ quran = `${anu.acak.ar.teks}\n\n${anu.acak.id.teks}\nQ.S ${anu.surat.nama} ayat 
 				case 'nulis':
 				case 'tulis':
 					if (args.length < 1) return reply('Yang Mau Di Tulis Apa Boss')
-				
 					teks = body.slice(7)
 					reply('⏳ WAIT Boss, Tunggu Sebentar Lagi Loading...')
 					buff = await getBuffer(`https://api.vhtear.com/write?text=${teks}&apikey=${VhtearKey}`)
@@ -527,14 +527,14 @@ quran = `${anu.acak.ar.teks}\n\n${anu.acak.id.teks}\nQ.S ${anu.surat.nama} ayat 
 				quotes = body.slice(1)
 				const quo =['Lebih baik mengerti sedikit daripada salah mengerti.','Hampir semua pria memang mampu bertahan menghadapi kesulitan. Namun, jika Anda ingin menguji karakter sejati pria, beri dia kekuasaan.','Bila tekad seseorang kuat dan teguh, Tuhan akan bergabung dalam usahanya.','Penderitaan adalah pelajaran.','Ilmu pengetahuan tanpa agama adalah pincang.','Hidup itu seperti sebuah sepeda, agar tetap seimbang kita harus tetap bergerak.','Perbedaan masa lalu, sekarang, dan masa depan tak lebih dari ilusi yang keras kepala.','Sebuah meja, sebuah kursi, semangkuk buah, dan sebuah biola; apa lagi yang dibutuhkan agar seseorang bisa merasa bahagia?','Belas kasihanlah terhadap sesama, bersikap keraslah terhadap diri sendiri.','Cara paling baik untuk menggerakkan diri Anda ialah memberi tugas kepada diri sendiri.','Kita tidak boleh kehilangan semangat. Semangat adalah stimulan terkuat untuk mencintai, berkreasi dan berkeinginan untuk hidup lebih lama.','Manusia akan bahagia selama ia memilih untuk bahagia.','Saya tidak berharap menjadi segalanya bagi setiap orang. Saya hanya ingin menjadi sesuatu untuk seseorang.','Apabila sempurna akal seseorang, maka sedikit perkataannya.','Bahagialah orang yang dapat menjadi tuan untuk dirinya, menjadi kusir untuk nafsunya dan menjadi kapten untuk bahtera hidupnya.','Sahabat yang jujur lebih besar harganya daripada harta benda yang diwarisi dari nenek moyang.','Yang paling melelahkan dalam hidup adalah menjadi orang yang tidak tulus.','Terbuka untuk Anda, begitulah Tuhan memberi kita jalan untuk berusaha. Jangan pernah berfikir jalan sudah tertutup.','Penundaan adalah kuburan dimana peluang dikuburkan.','Cinta bukan saling menatap mata, namun melihat ke arah yang sama bersama-sama.','Kita adalah apa yang kita kerjakan berulang kali. Dengan demikian, kecemerlangan bukan tbotakan, tetapi kebiasaan.','Jangan pernah mencoba menjadikan putra atau putri Anda menjadi seperti Anda. Diri Anda hanya cukup satu saja.','Jika Anda bisa membuat orang lain tertawa, maka Anda akan mendapatkan semua cinta yang Anda inginkan.','Masalah akan datang cepat atau lambat. Jika masalah datang, sambut dengan sebaik mungkin. Semakin ramah Anda menyapanya, semakin cepat ia pergi.','Kita tak bisa melakukan apapun untuk mengubah masa lalu. Tapi apapun yang kita lakukan bisa mengubah masa depan.','Kesabaran adalah teman dari kebijaksanaan.','Orang-orang kreatif termotivasi oleh keinginan untuk maju, bukan oleh keinginan untuk mengalahkan orang lain.','Dimanapun engkau berada selalulah menjadi yang terbaik dan berikan yang terbaik dari yang bisa kita berikan.','Kebencian seperti halnya cinta, berkobar karena hal-hal kecil.','Anda tidak perlu harus berhasil pada kali pertama.','Satu jam yang intensif, jauh lebih baik dan menguntungkan daripada bertahun-tahun bermimpi dan merenung-renung.','Hal terbaik yang bisa Anda lakukan untuk orang lain bukanlah membagikan kekayaan Anda, tetapi membantu dia untuk memiliki kekayaannya sendiri.','Tidak ada jaminan keberhasilan, tetapi tidak berusaha adalah jaminan kegagalan.','Aku tidak tahu kunci sukses itu apa, tapi kunci menuju kegagalan adalah mencoba membuat semua orang senang.']
 				const tes = quo[Math.floor(Math.random() * quo.length)]
-				enzet.sendMessage(from, ''+tes+'\n\n_By : JRL Svg._', text, { quoted: mek })
+				enzet.sendMessage(from, ''+tes+'\n\n_By : JRL Enzet._', text, { quoted: mek })
 				break				
 				case 'ninjalogo':
 				var gh = body.slice(11)
 				var nin = gh.split("&")[0];
 				var ja = gh.split("&")[1];
 				if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}ninjalogo JRL&Svg`)
-				reply(`[ WAIT ] Sedang di proses...\n*Loading ]67%*`)
+				reply(`[ WAIT ] Sedang di proses...`)
 				buffer = await getBuffer(`https://api.xteam.xyz/textpro/ninjalogo?text=${nin}&text2=${ja}&APIKEY=${XteamKey}`)
 				enzet.sendMessage(from, buffer, image, {quoted: mek})
 				break				
@@ -606,11 +606,11 @@ case 'glitchtext':
 					enzet.sendMessage(from, buffer, image, {quoted: mek})
 					break
 case 'gtawasted':
-				
 				var gh = body.slice(11)
 				var wasted = gh.split("|")[0];
 				var wasted2 = gh.split("|")[1];
 				if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}GtaWasted Ilham|Putra`)
+				reply(`[ WAIT ] Sedang di proses...`)
             gta = await getBuffer(`https://naufalhoster.xyz/textmaker/gta_wasted?apikey=WAWVf9pfqjBod0gZCF&text1=${wasted}&text2=${wasted2}`)
                 enzet.sendMessage(from, gta, image, {quoted: mek, caption: 'Nii Bos'})
                 break
@@ -620,36 +620,39 @@ case 'text8bit':
 					var tobz = gh.split("|")[1];
 					var ganz = gh.split("|")[2];
 					if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}Text8Bit Random|Enzet|BOT`)
-					reply(`[ WAIT ] Sedang di proses...\n*Loading ]67%*`)
+					reply(`[ WAIT ] Sedang di proses...`)
           buffer = await getBuffer(`https://tobz-api.herokuapp.com/api/photooxy?theme=${bit8}&text1=${tobz}&text2=${ganz}&apikey=${TobzKey}`)
           enzet.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nii Boss'})
           break
 case 'nickepep':                
             hamenzet = await fetchJson(`https://api.zeks.xyz/api/nickepep?apikey=${TobzKey}`)
-            reply(hamenzet.result)
+            buffer = await getBuffer(hamenzet.result)
+            enzet.sendMessage(from, buffer, nick, {quoted: mek})
 case 'katailham':
                 ilham = await fetchJson(`https://api-shizuka.herokuapp.com/bacotanilham?apikey=${itsmeiky633}`)
-                reply(ilham.result)       
+                buffer = await getBuffer(ilham.result)       
+                enzet.sendMessage(from, buffer, quotes, {quoted: mek})
                 break
 case 'katahacker':                
                 hacker = await fetchJson(`https://api-shizuka.herokuapp.com/bacotanhacker?apikey=${itsmeiky633}`)
-                reply(hacker.result)
+                buffer = await getBuffer(hacker.result)
+                enzet.sendMessage(from, buffer, quotes, {quoted: mek})
                 break
 case 'simi':
 					if (args.length < 1) return reply(`Mau nanya apa? Contoh : Kau Lagi Dimana Simi`)
 					teks = body.slice(5)
 					anu = await fetchJson(`https://api.xteam.xyz/simsimi?kata=${teks}&APIKEY=${XteamKey}`)
-					reply(anu.jawaban)
+					buffer = await getBuffer(anu.result)
+					enzet.sendMessage(from, buffer, jawaban, {quoted: mek})
 					break			
 case 'attp':
 				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}Attp Wajahku Ganteng*`)
-				attp = await fetchJson(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
-				attp2 = await getBuffer(attp.result)
+				attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
 				if (err) return reply(`* GAGAL  Coba Ulangi Beberapa Saat Lagi...*`)
 				enzet.sendMessage(from, attp2, sticker, {quoted: mek})
 				break
 case 'tts':
-				if (args.length < 1) return enzet.sendMessage(from, 'Kode Bahasanya Mana Boss? Contoh : ${prefix}Tts Id Halo Bot', text, {quoted: mek})
+				if (args.length < 1) return enzet.sendMessage(from, 'Kode Bahasanya Mana Boss? Contoh\n ${prefix}tts Id Halo Bot', text, {quoted: mek})
 					const gtts = require('./lib/gtts')(args[0])
 					if (args.length < 2) return enzet.sendMessage(from, `Teksnya mana kak | contoh : ${prefix}tts id ah yamate kudasai`, text, {quoted: mek})
 					dtt = body.slice(8)
@@ -668,14 +671,18 @@ case 'tts':
 					})
 					break
 case 'ttp':
-				
-				
 				if (args.length < 1) return reply(`💤 *Yang Mau Dijadiin Text Sticker Apaan Bos*\n[❗] _Please Fill In The Text That You Want To Use As a Sticker_`)
-					anu = await fetchJson(`https://st4rz.herokuapp.com/api/ttp?kata=${body.slice(5)}`)
-					ilham = await getBuffer(anu.result)
-						if (err) return reply(`* GAGAL  Coba Ulangi Beberapa Saat Lagi...*`)
-						enzet.sendMessage(from, ilham, sticker, {quoted: mek})
-					break
+					ranp = getRandom('.png')
+					rano = getRandom('.webp')
+					teks = body.slice(4).trim()
+					anu = await fetchJson(`https://st4rz.herokuapp.com/api/ttp?kata=${teks}`)
+					if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(ind.stikga())
+						baby.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
 				case 'toimg':
 				
 				if (!isQuotedSticker) return reply('Reply Atau Tag Sticker Yang Mau Dijadiin Gambar Boss >_<')
@@ -1658,7 +1665,7 @@ break
 					if (args.length < 1) return
 					
 					prefix = args[0]
-					reply(`*「 SUCCES 」* _Prefix Telah Terganti Menjadi_ ➸ : ${prefix}`)
+					reply(`*「 SUCCES 」* _Prefix Telah Terganti Menjadi_ ➸  *${prefix}*`)
 					break
 				case 'clearall':
 					
