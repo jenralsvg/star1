@@ -316,9 +316,7 @@ enzet.on('group-participants-update', async (anu) => {
 					clears: ' *Clear All Success*',
                                         noregis: `*[    ]*\n_Silahkan Daftar Terlebih Dahulu_\n\n*Cara Daftar ${prefix}Daftar Nama|Umur*\n*Contoh ${prefix}Daftar Enzet|17*`,
 				rediregis: `*  *\n*_Kamu Sudah Terdaftar Boss_* *_¤`,
-               }
-			}     
-                       
+              }                       
 /*
 ]=====> Mohamad Ilham <=====[
 */
