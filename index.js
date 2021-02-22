@@ -1173,7 +1173,7 @@ break
                   				
 					if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
 					if (!isGroupAdmins) return reply(`* ADMIN GROUP ONLY*`)
-					if (!isBotGroupAdmins) return reply( *BOT HARUS JADI ADMIN*`)					
+					if (!isBotGroupAdmins) return reply(` ` *BOT HARUS JADI ADMIN*`)					
 					if (args.length < 1) return reply('ketik 1 untuk mengaktifkan')
 					if (Number(args[0]) === 1) {
 						if (isAntiLink) return reply('EMANG MATI?')
@@ -1209,7 +1209,7 @@ break
                   					
 					if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
 					if (!isGroupAdmins) return reply(`* ADMIN GROUP ONLY*`)
-					if (!isBotGroupAdmins) return reply( *BOT HARUS JADI ADMIN*`)
+					if (!isBotGroupAdmins) return reply(` *BOT HARUS JADI ADMIN*`)
 					if (args[0] === 'buka') {
 					    reply(`*BERHASIL MEMBUKA GROUP*`)
 						enzet.groupSettingChange(from, GroupSettingChange.messageSend, false)
@@ -1222,7 +1222,7 @@ break
 				
 					if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
 					if (!isGroupAdmins) return reply(`* ADMIN GROUP ONLY*`)
-					if (!isBotGroupAdmins) return reply( *BOT HARUS JADI ADMIN*`)
+					if (!isBotGroupAdmins) return reply(` *BOT HARUS JADI ADMIN*`)
 					if (args.length < 1) return reply('Yang mau di add siapa?')
 					if (args[0].startsWith('08')) return reply('Gunakan kode bahasa kak')
 					try {
@@ -1238,7 +1238,7 @@ break
 				
 					if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
 					if (!isGroupAdmins) return reply(`* ADMIN GROUP ONLY*`)
-					if (!isBotGroupAdmins) return reply( *BOT HARUS JADI ADMIN*`)
+					if (!isBotGroupAdmins) return reply(` *BOT HARUS JADI ADMIN*`)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('💤 𝗧𝗮𝗴 𝘁𝗮𝗿𝗴𝗲𝘁 ??𝗮𝗻𝗴 𝗶𝗻𝗴𝗶𝗻 𝗱𝗶 𝘁𝗲𝗻𝗱𝗮𝗻𝗴!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -1293,7 +1293,7 @@ break
                   
 				               
 				    if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
-				    if (!isBotGroupAdmins) return reply( *BOT HARUS JADI ADMIN*`)
+				    if (!isBotGroupAdmins) return reply(` *BOT HARUS JADI ADMIN*`)
 				    linkgc = await enzet.groupInviteCode (from)
 				    yeh = `https://chat.whatsapp.com/${linkgc}\n\nlink Group *${groupName}*`
 				    enzet.sendMessage(from, yeh, text, {quoted: mek})
@@ -1316,7 +1316,7 @@ break
                            
                 if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
 			    if (!isGroupAdmins) return reply(`* ADMIN GROUP ONLY*`)
-				if (!isBotGroupAdmins) return reply( *BOT HARUS JADI ADMIN*`)
+				if (!isBotGroupAdmins) return reply(` *BOT HARUS JADI ADMIN*`)
                 enzet.groupUpdateSubject(from, `${body.slice(9)}`)
                 enzet.sendMessage(from, '⟪ SUKSES ⟫ Mengubah Nama Grup', text, {quoted: mek})
 					break
@@ -1324,7 +1324,7 @@ break
                                 
                 if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
 			    if (!isGroupAdmins) return reply(`* ADMIN GROUP ONLY*`)
-				if (!isBotGroupAdmins) return reply( *BOT HARUS JADI ADMIN*`)
+				if (!isBotGroupAdmins) return reply(` *BOT HARUS JADI ADMIN*`)
                 enzet.groupUpdateDescription(from, `${body.slice(9)}`)
                 enzet.sendMessage(from, '⟪ SUKSES ⟫ Mengubah Desk Grup', text, {quoted: mek})
 					break
@@ -1332,7 +1332,7 @@ break
                            
 					if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
 					if (!isGroupAdmins) return reply(`* ADMIN GROUP ONLY*`)
-					if (!isBotGroupAdmins) return reply( *BOT HARUS JADI ADMIN*`)
+					if (!isBotGroupAdmins) return reply(` *BOT HARUS JADI ADMIN*`)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('💤 *𝗧ag 𝘁arget 𝘆ang 𝗶ngin 𝗱i Demote!*')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -1352,7 +1352,7 @@ break
                 				
 					if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
 					if (!isGroupAdmins) return reply(`* ADMIN GROUP ONLY*`)
-					if (!isBotGroupAdmins) return reply( *BOT HARUS JADI ADMIN*`)
+					if (!isBotGroupAdmins) return reply(` *BOT HARUS JADI ADMIN*`)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('𝗧𝗮𝗴 ??𝗮??𝗴𝗲𝘁 𝘆𝗮𝗻𝗴 𝗶𝗻𝗴𝗶𝗻 𝗱𝗶 𝘁𝗲𝗻𝗱𝗮𝗻𝗴!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -1372,7 +1372,7 @@ break
                 				
 					if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
 					if (!isGroupAdmins) return reply(`* ADMIN GROUP ONLY*`)
-					if (!isBotGroupAdmins) return reply( *BOT HARUS JADI ADMIN*`)
+					if (!isBotGroupAdmins) return reply(` *BOT HARUS JADI ADMIN*`)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di jadi admin!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -1391,7 +1391,7 @@ break
                 				
 					if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
 					if (!isGroupAdmins) return reply(`* ADMIN GROUP ONLY*`)
-					if (!isBotGroupAdmins) return reply( *BOT HARUS JADI ADMIN*`)
+					if (!isBotGroupAdmins) return reply(` *BOT HARUS JADI ADMIN*`)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('💤 Tag Target Yang Ingin Di Tendang!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
