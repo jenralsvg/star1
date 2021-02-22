@@ -1885,7 +1885,7 @@ case 'sound7':
 tujuh = fs.readFileSync('./assets/sound7.mp3');
 enzet.sendMessage(from, tujuh, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
 break				
-if (budy.includes('assalamualaikum')}
+if (budy.includes('assalamualaikum')||
 enzet.sendPtt(from, './assets/Salam.opus',MessageType)
           }
 /*
