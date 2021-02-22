@@ -737,12 +737,12 @@ case 'daftar':
                 veri = sender
                 if (isGroup) {
                     addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-                    await reply(`* REGISTRASI BERHASIL *\nUntuk User Info :\n\n* Nama : ${namaUser}*\n* Nomor : wa.me/${sender.split("@")[0]}*\n* Umur : ${umurUser}*\n* Waktu Pendaftaran : ${time}*\n\n* SN : ${serialUser}*\n_NOTE : Pergunakan Bot Dengan Cinta_ `(namaUser, umurUser, serialUser, time, sender))
+                    await reply(`*[ REGISTRASI BERHASIL ]*\nUntuk User Info :\n\n* Nama : ${namaUser}*\n* Nomor : wa.me/${sender.split("@")[0]}*\n* Umur : ${umurUser}*\n* Waktu Pendaftaran : ${time}*\n\n* SN : ${serialUser}*\n_NOTE : Pergunakan Bot Dengan Cinta_ `(namaUser, umurUser, serialUser, time, sender))
                     addLevelingId(sender)
                     console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
                 } else {
                     addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-                    await reply(`* REGISTRASI BERHASIL *\nUntuk User Info :\n\n* Nama : ${namaUser}*\n* Nomor : wa.me/${sender.split("@")[0]}*\n* Umur : ${umurUser}*\n* Waktu Pendaftaran : ${time}*\n\n* SN : ${serialUser}*\n_NOTE : Pergunakan Bot Dengan Cinta_ `(namaUser, umurUser, serialUser, time, sender))
+                    await reply(`*[ REGISTRASI BERHASIL ]*\nUntuk User Info :\n\n* Nama : ${namaUser}*\n* Nomor : wa.me/${sender.split("@")[0]}*\n* Umur : ${umurUser}*\n* Waktu Pendaftaran : ${time}*\n\n* SN : ${serialUser}*\n_NOTE : Pergunakan Bot Dengan Cinta_ `(namaUser, umurUser, serialUser, time, sender))
                     addLevelingId(sender)
                     console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
                 }
