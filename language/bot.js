@@ -1,3 +1,4 @@
+const bot = (pushname, sender, getLevelingXp,  getLevel, getLevelingLevel) => {
 exports.wait = () => {
 	return`[ WAIT ] Sedang di proses...\n*Loading ██████━━━]67%*`
 }
