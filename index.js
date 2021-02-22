@@ -722,8 +722,8 @@ case 'ttp':
 case 'daftar':
                 if (isRegistered) return  reply(`* TERDAFTAR *\n*_Kamu Sudah Terdaftar Boss_* «_»`)
                 if (!q.includes('|')) return  reply(` *Teks nya mana Boss?*`)
-                const namaUser = q.substring(0, q.botexOf('|') - 0)
-                const umurUser = q.substring(q.lastbotexOf('|') + 1)
+                const namaUser = q.substring(0, q.indexOf('|') - 0)
+                const umurUser = q.substring(q.lastIndexOf('|') + 1)
                 const serialUser = createSerial(20)
                 if (namaUser.length >= 30) return reply(`Namanya kepanjangan kak :)`)
                 if (umurUser.length >= 3, umurUser.length <= 1) return reply(`Umur Min 10 Tahun Max 40 Tahun`)
