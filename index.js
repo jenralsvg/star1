@@ -1173,7 +1173,7 @@ break
                   				
 					if (!isGroup) return reply(`*[] Perintah ini hanya bisa di gunakan dalam group!*`)			
 					if (!isGroupAdmins) return reply(`* ADMIN GROUP ONLY*`)
-					if (!isBotGroupAdmins) return reply(` ` *BOT HARUS JADI ADMIN*`)					
+					if (!isBotGroupAdmins) return reply(` *BOT HARUS JADI ADMIN*`)					
 					if (args.length < 1) return reply('ketik 1 untuk mengaktifkan')
 					if (Number(args[0]) === 1) {
 						if (isAntiLink) return reply('EMANG MATI?')
