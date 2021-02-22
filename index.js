@@ -73,6 +73,7 @@ const welkom = JSON.parse(fs.readFileSync('./database/group/welkom.json'))
 const nsfw = JSON.parse(fs.readFileSync('./database/group/nsfw.json'))
 const samih = JSON.parse(fs.readFileSync('./database/group/simi.json'))
 const event = JSON.parse(fs.readFileSync('./database/group/event.json'))
+const ban = JSON.parse(fs.readFileSync('./database/user/banned.json'))
 const antilink = JSON.parse(fs.readFileSync('./database/group/antilink.json'))
 /*       
 ]=====> LOAD MENU <=====[
