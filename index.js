@@ -41,7 +41,7 @@ const cd = 4.32e+7
 const { removeBackgroundFromImageFile } = require('remove.bg')
 const vcard = 'BEGIN:VCARD\n'
             + 'VERSION:3.0\n'
-            + 'FN:𝐄𝐧𝐳𝐞𝐭 𝐁𝐎𝐓\n' // GANTI NAMA MU
+            + 'FN:ð„ð§ð³ðžð­ ððŽð“\n' // GANTI NAMA MU
             + 'ORG:Owner Bot;\n'
             + 'TEL;type=CELL;type=VOICE;waid=6281253534285:+62 812-5353-4285\n' // GANTI NOMOR MU
             + 'END:VCARD'
@@ -302,20 +302,20 @@ enzet.on('group-participants-update', async (anu) => {
 				lvlnoon: ' *The Level In The Group Has Not Been Activated*\n[] _Level Dalam Group Belum Di Aktifkan_',
 				lvlnul: ' *Your Level Is Still Empty*\n[] _Levelmu Masih Kosong_',
 				levelup: '*  *\n *Nama* : _${pushname}_\n *Nomor* : _wa.me/${sender.split("@")[0]}_\n *Xp* : _${getLevelingXp(sender)}_\n *Level* : _${getLevel}  ${getLevelingLevel(sender)}_',
-					stikga: ' * GAGAL  Coba Ulangi Beberapa Saat Lagi...*',
+					stikga: '💤 * GAGAL  Coba Ulangi Beberapa Saat Lagi...*',
 					linkga: '* Maaf Link Yang Anda Kirim Tidak Valid*',
-					wrongf: ' *Teks nya mana Boss?*',
-					satukos: ' *Add Parameters [ 1 ] Enable Or [ 0 ] Disable*\n${prefix}${command} [] _Tambah Parameter [ 1 ] Aktifkan atau [ 0 ] Nonaktifkan'
+					wrongf: '💤 *Teks nya mana Boss?*',
+					satukos: '💤 *Add Parameters [ 1 ] Enable Or [ 0 ] Disable*\n${prefix}${command} [] _Tambah Parameter [ 1 ] Aktifkan atau [ 0 ] Nonaktifkan'
 				},
-				only: {
-					groupo: '*[] Perintah ini hanya bisa di gunakan dalam group!*',
-					ownerg: '*[] Perintah ini hanya bisa di gunakan oleh owner group!*',
-					ownerb: '*[] Perintah ini hanya bisa di gunakan oleh owner bot!*',
-					admin: '*[] Perintah ini hanya bisa di gunakan oleh admin group!*',
-					badmin: '*[] Perintah ini hanya bisa di gunakan ketika bot menjadi admin!*',
+				only = {
+					groupo: '*[❗] Perintah ini hanya bisa di gunakan dalam group!*',
+					ownerg: '*[❗] Perintah ini hanya bisa di gunakan oleh owner group!*',
+					ownerb: '*[❗] Perintah ini hanya bisa di gunakan oleh owner bot!*',
+					admin: '*[❗] Perintah ini hanya bisa di gunakan oleh admin group!*',
+					badmin: '*[❗] Perintah ini hanya bisa di gunakan ketika bot menjadi admin!*',
 					clears: ' *Clear All Success*',
                                         noregis: `*[    ]*\n_Silahkan Daftar Terlebih Dahulu_\n\n*Cara Daftar ${prefix}Daftar Nama|Umur*\n*Contoh ${prefix}Daftar Enzet|17*`,
-				rediregis: `*  *\n*_Kamu Sudah Terdaftar Boss_* *_�`,
+				rediregis: `*  *\n*_Kamu Sudah Terdaftar Boss_* *_¤`,
                }
 			}     
                        
@@ -387,7 +387,7 @@ enzet.on('group-participants-update', async (anu) => {
 		        var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 		        reply(`Boss ${sender.split("@")[0]} Grup ini anti link Hihi`)
 		        setTimeout( () => {
-			        enzet.groupRemove(from, [kic]).catch((e)=>{reply(`[ ❗] Bot Harus Menjadi Admin`)})
+			        enzet.groupRemove(from, [kic]).catch((e)=>{reply(`[ â—] Bot Harus Menjadi Admin`)})
 		        }, 3000)
 		        setTimeout( () => {
 			        enzet.updatePresence(from, Presence.composing)
@@ -551,7 +551,7 @@ quran = `${anu.acak.ar.teks}\n\n${anu.acak.id.teks}\nQ.S ${anu.surat.nama} ayat 
 				if (!isRegistered) return reply(bot.only.noregis())
 				if (args.length < 1) return reply(`Teksnya Mana Boss? Contoh : ${prefix}Nulis1 Kata Ilham Enzet`)
 				ilham = body.slice(8)
-				reply('⏳ WAIT Boss, Tunggu Sebentar Lagi Loading...')
+				reply('â³ WAIT Boss, Tunggu Sebentar Lagi Loading...')
 				buff = await getBuffer(`https://api.xteam.xyz/magernulis2?text=${ilham}&APIKEY=${XteamKey}`)
 				enzet.sendMessage(from, buff, image, {quoted: mek, caption: 'Nii'})
 				break
@@ -560,7 +560,7 @@ quran = `${anu.acak.ar.teks}\n\n${anu.acak.id.teks}\nQ.S ${anu.surat.nama} ayat 
 				if (!isRegistered) return reply(bot.only.noregis())
 				if (args.length < 1) return reply(`Teksnya Mana Boss? Contoh : ${prefix}Nulis2 Kata Putra Enzet`)
 				gabut = body.slice(8)
-				reply('⏳ WAIT Boss, Tunggu Sebentar Lagi Loading...')
+				reply('â³ WAIT Boss, Tunggu Sebentar Lagi Loading...')
 				buff = await getBuffer(`https://api.xteam.xyz/magernulis3?text=${gabut}&APIKEY=${XteamKey}`)
 				enzet.sendMessage(from, buff, image, {quoted: mek, caption: 'Nii'})
 				break
@@ -569,7 +569,7 @@ quran = `${anu.acak.ar.teks}\n\n${anu.acak.id.teks}\nQ.S ${anu.surat.nama} ayat 
 					if (args.length < 1) return reply('Yang Mau Di Tulis Apa Boss')
 				if (!isRegistered) return reply(bot.only.noregis())
 					teks = body.slice(7)
-					reply('⏳ WAIT Boss, Tunggu Sebentar Lagi Loading...')
+					reply('â³ WAIT Boss, Tunggu Sebentar Lagi Loading...')
 					buff = await getBuffer(`https://api.vhtear.com/write?text=${teks}&apikey=${VhtearKey}`)
 					enzet.sendMessage(from, buff, image, {quoted: mek })
 					break													
@@ -586,7 +586,7 @@ quran = `${anu.acak.ar.teks}\n\n${anu.acak.id.teks}\nQ.S ${anu.surat.nama} ayat 
 				var gh = body.slice(11)
 				var nin = gh.split("&")[0];
 				var ja = gh.split("&")[1];
-				if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}ninjalogo JRL&Svg`)
+				if (args.length < 1) return reply(`ã€Œâ—ã€ Contoh : ${prefix}ninjalogo JRL&Svg`)
 				reply(bot.wait())
 				buffer = await getBuffer(`https://api.xteam.xyz/textpro/ninjalogo?text=${nin}&text2=${ja}&APIKEY=${XteamKey}`)
 				enzet.sendMessage(from, buffer, image, {quoted: mek})
@@ -607,7 +607,7 @@ quran = `${anu.acak.ar.teks}\n\n${anu.acak.id.teks}\nQ.S ${anu.surat.nama} ayat 
 				var gh = body.slice(9)
 				var porn = gh.split("|")[0];
 				var hub = gh.split("|")[1];
-				if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}Pornhub Tobat|Hub`)
+				if (args.length < 1) return reply(`ã€Œâ—ã€ Contoh : ${prefix}Pornhub Tobat|Hub`)
 				reply(bot.wait())
 				buffer = await getBuffer(`https://api.xteam.xyz/textpro/ph?text=${porn}&text2=${hub}&APIKEY=${XteamKey}`)
 				enzet.sendMessage(from, buffer, image, {quoted: mek})
@@ -618,7 +618,7 @@ case 'gemboktext':
 					var gh = body.slice(12)
 					var gem = gh.split("|")[0];
 					var bok = gh.split("|")[1];
-					if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}Gemboktext 11 01 2021|Ilham Dan Putra`)
+					if (args.length < 1) return reply(`ã€Œâ—ã€ Contoh : ${prefix}Gemboktext 11 01 2021|Ilham Dan Putra`)
 					reply(bot.wait())
 					buffer = await getBuffer(`https://api.vhtear.com/padlock?text1=${gem}&text2=${bok}&apikey=${VhtearKey}`)
 					enzet.sendMessage(from, buffer, image, {quoted: mek})
@@ -647,7 +647,7 @@ case 'youtubetext':
 case 'textpro':
                 
 				if (!isRegistered) return reply(bot.only.noregis())
-				if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}TextPro HamTraNzet`)
+				if (args.length < 1) return reply(`ã€Œâ—ã€ Contoh : ${prefix}TextPro HamTraNzet`)
         teks = body.slice(9)
         reply(bot.wait())
         tek = await getBuffer(`https://mhankbarbar.tech/api/textpro=${teks}`)
@@ -659,7 +659,7 @@ case 'glitchtext':
 					var gh = body.slice(12)
 					var gli = gh.split("|")[0];
 					var tch = gh.split("|")[1];
-					if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}Glitchtext Ilham|Putra`)
+					if (args.length < 1) return reply(`ã€Œâ—ã€ Contoh : ${prefix}Glitchtext Ilham|Putra`)
 					reply(bot.wait())
 					buffer = await getBuffer(`https://api.xteam.xyz/textpro/glitch?text=${gli}&text2=${tch}&APIKEY=${XteamKey}`)
 					enzet.sendMessage(from, buffer, image, {quoted: mek})
@@ -669,7 +669,7 @@ case 'gtawasted':
 				var gh = body.slice(11)
 				var wasted = gh.split("|")[0];
 				var wasted2 = gh.split("|")[1];
-				if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}GtaWasted Ilham|Putra`)
+				if (args.length < 1) return reply(`ã€Œâ—ã€ Contoh : ${prefix}GtaWasted Ilham|Putra`)
             gta = await getBuffer(`https://naufalhoster.xyz/textmaker/gta_wasted?apikey=WAWVf9pfqjBod0gZCF&text1=${wasted}&text2=${wasted2}`)
                 enzet.sendMessage(from, gta, image, {quoted: mek, caption: 'Nii Bos'})
                 break
@@ -680,7 +680,7 @@ case 'text8bit':
 					var bit8 = gh.split("|")[0];
 					var tobz = gh.split("|")[1];
 					var ganz = gh.split("|")[2];
-					if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}Text8Bit Random|Enzet|BOT`)
+					if (args.length < 1) return reply(`ã€Œâ—ã€ Contoh : ${prefix}Text8Bit Random|Enzet|BOT`)
 					reply(bot.wait())
           buffer = await getBuffer(`https://tobz-api.herokuapp.com/api/photooxy?theme=${bit8}&text1=${tobz}&text2=${ganz}&apikey=${TobzKey}`)
           enzet.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nii Boss'})
@@ -743,7 +743,7 @@ case 'tts':
 case 'ttp':
 				
 				if (!isRegistered) return reply(bot.only.noregis())
-				if (args.length < 1) return reply(`💤 *Yang Mau Dijadiin Text Sticker Apaan Bos*\n[❗] _Please Fill In The Text That You Want To Use As a Sticker_`)
+				if (args.length < 1) return reply(`ðŸ’¤ *Yang Mau Dijadiin Text Sticker Apaan Bos*\n[â—] _Please Fill In The Text That You Want To Use As a Sticker_`)
 					anu = await fetchJson(`https://st4rz.herokuapp.com/api/ttp?kata=${body.slice(5)}`)
 					ilham = await getBuffer(anu.result)
 						if (err) return reply(bot.stikga())
@@ -788,9 +788,9 @@ case 'ttp':
                    if (!isRegistered) return reply(bot.only.noregis())
                      teks = body.slice(9)
                      anu = await fetchJson(`https://api.vhtear.com/igprofile?query=${teks}&apikey=${VhtearKey}`, {method: 'get'})
-                     reply('「❗」 Sabar Lagi Stalking IG nya kak')
+                     reply('ã€Œâ—ã€ Sabar Lagi Stalking IG nya kak')
                      buffer = await getBuffer(anu.result.picture)
-                     hasil = `Telah DI Stalk BOS Ku Untuk USERNAME ${teks} \n\n *Username* : _${anu.result.username}_ \n *Nama*    : _${anu.result.full_name}_ \n *Jumlah Follower??﹦?* : _${anu.result.follower}_ \n *Jumlah Following* : _${anu.result.follow}_ \n *Jumlah Post* : _${anu.result.post_count}_ \n *Biografi*    : _${anu.result.biography}`
+                     hasil = `Telah DI Stalk BOS Ku Untuk USERNAME ${teks} \n\n *Username* : _${anu.result.username}_ \n *Nama*    : _${anu.result.full_name}_ \n *Jumlah Follower??ï¹¦?* : _${anu.result.follower}_ \n *Jumlah Following* : _${anu.result.follow}_ \n *Jumlah Post* : _${anu.result.post_count}_ \n *Biografi*    : _${anu.result.biography}`
                     enzet.sendMessage(from, buffer, image, {quoted: mek, caption: hasil})
 			       break
 case 'daftar':
@@ -845,7 +845,7 @@ case 'silktext':
                 anug = getRegisteredRandomId(_registered).replace('@s.whatsapp.net','')
                 await reply('Mencari Pasangan >_<')
                 await reply(`wa.me/${anug}`)
-                await reply( `Pasangan Ditemukan: 🐊\n*${prefix}next* — Temukan Pasangan Baru`)
+                await reply( `Pasangan Ditemukan: ðŸŠ\n*${prefix}next* â€” Temukan Pasangan Baru`)
             break
 case 'next':
                   
@@ -854,7 +854,7 @@ case 'next':
                 anug = getRegisteredRandomId(_registered).replace('@s.whatsapp.net','')
                 await reply('Mencari Pasangan >_<')
                 await reply(`wa.me/${anug}`)
-                await reply( `Pasangan Ditemukan: 🐊\n*${prefix}next* — Temukan Pasangan Baru`)
+                await reply( `Pasangan Ditemukan: ðŸŠ\n*${prefix}next* â€” Temukan Pasangan Baru`)
                 break
                 case 'blowjob':
                   
@@ -877,7 +877,7 @@ case 'next':
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cry?apikey=${TobzKey}`, {method: 'get'})
-					reply('「❗」 Di Harapkan Untuk Jeda 1 Menit Habis Ini Ya Bos')
+					reply('ã€Œâ—ã€ Di Harapkan Untuk Jeda 1 Menit Habis Ini Ya Bos')
 					if (anu.error) return reply(anu.error)
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
@@ -893,7 +893,7 @@ case 'next':
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/kiss?apikey=${TobzKey}`, {method: 'get'})
-					reply('「❗」 Di Harapkan Untuk Jeda 1 Menit Habis Ini Ya Bos')
+					reply('ã€Œâ—ã€ Di Harapkan Untuk Jeda 1 Menit Habis Ini Ya Bos')
 					if (anu.error) return reply(anu.error)
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
@@ -909,7 +909,7 @@ case 'next':
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hug?apikey=${TobzKey}`, {method: 'get'})
-					reply('「❗」 Di Harapkan Untuk Jeda 1 Menit Habis Ini Ya Bos')
+					reply('ã€Œâ—ã€ Di Harapkan Untuk Jeda 1 Menit Habis Ini Ya Bos')
 					if (anu.error) return reply(anu.error)
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
@@ -926,7 +926,7 @@ case 'next':
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply('URL NYA TIDAK VALID KAK')				
 		anu = await fetchJson(`https://api.vhtear.com/ytdl?link=${args[0]}&apikey=${VhtearKey}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
-					teks = `*➸ JUDUL* : ${anu.result.title}\n\n*[WAIT] Proses Dumlu Yakan*`
+					teks = `*âž¸ JUDUL* : ${anu.result.title}\n\n*[WAIT] Proses Dumlu Yakan*`
 					thumb = await getBuffer(anu.result.imgUrl)
 					enzet.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
 					buffer = await getBuffer(anu.result.UrlVideo)
@@ -1009,12 +1009,12 @@ case 'next':
 				if (!isRegistered) return reply(bot.only.noregis())
 					anu = await fetchJson(`https://api.vhtear.com/funkuis&apikey=${VhtearKey}`, {method: 'get'})
 					caklontong = `*${anu.result.soal}*`
-					lontong = `➸ Jawaban : *${anu.result.jawaban}* \n➸ Penjelasan : *${anu.result.desk}*`
+					lontong = `âž¸ Jawaban : *${anu.result.jawaban}* \nâž¸ Penjelasan : *${anu.result.desk}*`
 					setTimeout( () => {
 					enzet.sendMessage(from, lontong, text, {quoted: mek})					
 					}, 30000) // 1000 = 1s,
 					setTimeout( () => {
-					enzet.sendMessage(from, '_10 Detik lagi…_', text)
+					enzet.sendMessage(from, '_10 Detik lagiâ€¦_', text)
 					}, 20000) // 1000 = 1s,
 					setTimeout( () => {
 					enzet.sendMessage(from, '_20 Detik lagi..._', text)
@@ -1031,7 +1031,7 @@ case 'next':
 				if (!isRegistered) return reply(bot.only.noregis())
 					anu = await fetchJson(`https://api.vhtear.com/tebakgambar&apikey=${VhtearKey}`, {method: 'get'})
 					ngebuff = await getBuffer(anu.result.soalImg)
-					tebak = `➸ Jawaban : *${anu.result.jawaban}*`
+					tebak = `âž¸ Jawaban : *${anu.result.jawaban}*`
 					setTimeout( () => {
 					enzet.sendMessage(from, tebak, text, {quoted: mek})
 					}, 30000) // 1000 = 1s,
@@ -1092,9 +1092,9 @@ case 'next':
 case 'neontext':
                   
 				if (!isRegistered) return reply(bot.only.noregis())
-if (args.length < 1) return reply(`「❗」Contoh : ${prefix}Neontext IlhamEnzet`)
+if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}Neontext IlhamEnzet`)
 neon = body.slice(10)
-reply('「❗」 WAIT GANS')
+reply('ã€Œâ—ã€ WAIT GANS')
 anu = await getBuffer(`https://api.xteam.xyz/textpro/neon?text=$APIKEY=${XteamKey}`)
 enzet.sendMessage(from, anu, image, {quoted: mek})
 break					
@@ -1117,7 +1117,7 @@ break
                 case 'dare':
                 
 				if (!isRegistered) return reply(bot.only.noregis())      
-					const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot 🤥 setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u enzet?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
+					const dare =['Kirim pesan ke mantan kamu dan bilang "aku masih suka sama kamu','telfon crush/pacar sekarang dan ss ke pemain','pap ke salah satu anggota grup','Bilang "KAMU CANTIK BANGET NGGAK BOHONG" ke cowo','ss recent call whatsapp','drop emot ðŸ¤¥ setiap ngetik di gc/pc selama 1 hari','kirim voice note bilang can i call u enzet?','drop kutipan lagu/quote, terus tag member yang cocok buat kutipan itu','pake foto sule sampe 3 hari','ketik pake bahasa daerah 24 jam','ganti nama menjadi "gue anak lucinta luna" selama 5 jam','chat ke kontak wa urutan sesuai %batre kamu, terus bilang ke dia "i lucky to hv you','prank chat mantan dan bilang " i love u, pgn balikan','record voice baca surah al-kautsar','bilang "i hv crush on you, mau jadi pacarku gak?" ke lawan jenis yang terakhir bgt kamu chat (serah di wa/tele), tunggu dia bales, kalo udah ss drop ke sini','sebutkan tipe pacar mu!','snap/post foto pacar/crush','teriak gajelas lalu kirim pake vn kesini','pap mukamu lalu kirim ke salah satu temanmu','kirim fotomu dengan caption, aku anak pungut','teriak pake kata kasar sambil vn trus kirim kesini','teriak " anjimm gabutt anjimmm " di depan rumah mu','ganti nama jadi " BOWO " selama 24 jam','Pura pura kerasukan, contoh : kerasukan maung, kerasukan belalang, kerasukan kulkas, dll']
 					const der = dare[Math.floor(Math.random() * dare.length)]
 					tod = await getBuffer(`https://i.ibb.co/305yt26/bf84f20635dedd5dde31e7e5b6983ae9.jpg`)
 					enzet.sendMessage(from, tod, image, { quoted: mek, caption: '*Dare*\n\n'+ der })
@@ -1145,11 +1145,11 @@ break
 						if (isWelkom) return reply('*Fitur WELCOME Sudah AKTIF Boss*')
 						welkom.push(from)
 						fs.writeFileSync('./database/group/welkom.json', JSON.stringify(welkom))
-						reply('*「SUKSES」 MENGAKTIFKAN FITUR WELCOME DI GROUP*')
+						reply('*ã€ŒSUKSESã€ MENGAKTIFKAN FITUR WELCOME DI GROUP*')
 					} else if (Number(args[0]) === 0) {
 						welkom.splice(from, 1)
 						fs.writeFileSync('./database/group/welkom.json', JSON.stringify(welkom))
-						reply('*「SUKSES」 MEMATIKAN FITUR WELCOME DI GROUP*')
+						reply('*ã€ŒSUKSESã€ MEMATIKAN FITUR WELCOME DI GROUP*')
 					} else {
 						reply(bot.satukos())
 					}
@@ -1157,9 +1157,9 @@ break
 case 'blackpink':
                   
 				if (!isRegistered) return reply(bot.only.noregis())
-if (args.length < 1) return reply(`「❗」 Contoh : ${prefix}BlackPink Text Anda`)
+if (args.length < 1) return reply(`ã€Œâ—ã€ Contoh : ${prefix}BlackPink Text Anda`)
 pink = body.slice(11)
-reply('💤 *Format Yang Anda Masukan Salah*')
+reply('ðŸ’¤ *Format Yang Anda Masukan Salah*')
 lol = await getBuffer(`https://api.xteam.xyz/textpro/blackpink?text=${pink}&APIKEY=${XteamKey}`)
 enzet.sendMessage(from, lol, image, {quoted: mek})
 break					
@@ -1172,11 +1172,11 @@ break
 						if (isEventon) return reply('*FITUR EVENT SUDAH AKTIF BOS*')
 						event.push(from)
 						fs.writeFileSync('./database/group/event.json', JSON.stringify(event))
-						reply('*「SUKSES」 MENGAKTIFKAN EVENT DI GROUP*')
+						reply('*ã€ŒSUKSESã€ MENGAKTIFKAN EVENT DI GROUP*')
 					} else if (Number(args[0]) === 0) {
 						event.splice(from, 1)
 						fs.writeFileSync('./database/group/event.json', JSON.stringify(event))
-						reply('*「SUKSES」 MEMATIKAN EVENT DI GROUP*')
+						reply('*ã€ŒSUKSESã€ MEMATIKAN EVENT DI GROUP*')
 					} else {
 						reply(bot.satukos())
 					}
@@ -1201,16 +1201,16 @@ break
 				case 'simih':
                   				
 					if (!isGroup) return reply(bot.only.groupo())
-					if (args.length < 1) return reply(`*Add Parameters [ 1 ] Enable Or [ 0 ] Disable*\n[❗] _Tambah Parameter [ 1 ] Aktifkan atau [ 0 ] Nonaktifkan`)
+					if (args.length < 1) return reply(`*Add Parameters [ 1 ] Enable Or [ 0 ] Disable*\n[â—] _Tambah Parameter [ 1 ] Aktifkan atau [ 0 ] Nonaktifkan`)
 					if (Number(args[0]) === 1) {
-						if (isSimi) return reply('🎭 *SUDAH AKTIF*')
+						if (isSimi) return reply('ðŸŽ­ *SUDAH AKTIF*')
 						samih.push(from)
 						fs.writeFileSync('./database/group/simi.json', JSON.stringify(samih))
-						reply('*「 SUCCES 」 Mengaktifkan Fitur SIMI Di Group* 🥁')
+						reply('*ã€Œ SUCCES ã€ Mengaktifkan Fitur SIMI Di Group* ðŸ¥')
 					} else if (Number(args[0]) === 0) {
 						samih.splice(from, 1)
 						fs.writeFileSync('./database/group/simi.json', JSON.stringify(samih))
-						reply('*「 SUCCES 」 Mematikan Fitur SIMI Di Group* 👻')
+						reply('*ã€Œ SUCCES ã€ Mematikan Fitur SIMI Di Group* ðŸ‘»')
 					} else {
 						reply(bot.satukos())
 					}
@@ -1224,11 +1224,11 @@ break
 						if (isNsfw) return reply(' *sudah aktif*  !!')
 						nsfw.push(from)
 						fs.writeFileSync('./database/group/nsfw.json', JSON.stringify(nsfw))
-						reply('*「SUKSES」 MENGAKTIFKAN FITUR NSFW DI GROUP*')
+						reply('*ã€ŒSUKSESã€ MENGAKTIFKAN FITUR NSFW DI GROUP*')
 					} else if (Number(args[0]) === 0) {
 						nsfw.splice(from, 1)
 						fs.writeFileSync('./database/group/nsfw.json', JSON.stringify(nsfw))
-						reply('*「SUKSES」 MEMATIKAN FITUR NSWF DI GROUP*')
+						reply('*ã€ŒSUKSESã€ MEMATIKAN FITUR NSWF DI GROUP*')
 					} else {
 						reply(bot.satukos())
 					}
@@ -1243,14 +1243,14 @@ break
 						if (isAntiLink) return reply('EMANG MATI?')
 						antilink.push(from)
 						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
-						reply('「SUKSES」MENGAKTIFKAN ANTI LINK DI GROUP')
+						reply('ã€ŒSUKSESã€MENGAKTIFKAN ANTI LINK DI GROUP')
 						enzet.sendMessage(from,`ALLERT!!! Jika bukan admin jangan kirim link grup`, text)
 					} else if (Number(args[0]) === 0) {
 						if (!isAntiLink) return reply('EMANG AKTIF?')
 						var ini = anti.botLangsexOf(from)
 						antilink.splice(ini, 1)
 						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
-						reply('「SUKSES」MEMATIKAN ANTI LINK DI GROUP')
+						reply('ã€ŒSUKSESã€MEMATIKAN ANTI LINK DI GROUP')
 					} else {
 						reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 					}
@@ -1303,18 +1303,18 @@ break
 					if (!isGroup) return reply(bot.only.groupo())
 					if (!isGroupAdmins) return reply(bot.only.admin())
 					if (!isBotGroupAdmins) return reply(only.badmin())
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('💤 𝗧𝗮𝗴 𝘁𝗮𝗿𝗴𝗲𝘁 ??𝗮𝗻𝗴 𝗶𝗻𝗴𝗶𝗻 𝗱𝗶 𝘁𝗲𝗻𝗱𝗮𝗻𝗴!')
+					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('ðŸ’¤ ð—§ð—®ð—´ ð˜ð—®ð—¿ð—´ð—²ð˜ ??ð—®ð—»ð—´ ð—¶ð—»ð—´ð—¶ð—» ð—±ð—¶ ð˜ð—²ð—»ð—±ð—®ð—»ð—´!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
 						teks = ''
 						for (let _ of mentioned) {
-							teks += `Assalamualaikum Atas Perintah Admin Grup Anda Akan Di Tendang🏃 :\n`
+							teks += `Assalamualaikum Atas Perintah Admin Grup Anda Akan Di TendangðŸƒ :\n`
 							teks += `@_.split('@')[0]`
 						}
 						mentions(teks, mentioned, true)
 						enzet.groupRemove(from, mentioned)
 					} else {
-						mentions(`Assalamualaikum Atas Perintah Admin Grup Anda Akan Di Tendang @${mentioned[0].split('@')[0]} 🏃`, mentioned, true)
+						mentions(`Assalamualaikum Atas Perintah Admin Grup Anda Akan Di Tendang @${mentioned[0].split('@')[0]} ðŸƒ`, mentioned, true)
 						enzet.groupRemove(from, mentioned)
 					}
 					break
@@ -1346,7 +1346,7 @@ break
                 const userXp = getLevelingXp(sender)
                 if (userLevel === undefined && userXp === undefined) return reply(bot.lvlnul())
                 const requiredXp = 5000 * (Math.pow(2, userLevel) - 1)
-                resul = `┏━━━━━━♡ *LEVEL* ♡━━━━━━━┓\n┃╭───────────────────\n┃│➸ NAMA : ${pushname}\n┃│➸ NOMOR : wa.me/${sender.split("@")[0]}\n┃│➸ XP : ${userXp}/${requiredXp}\n┃│➸ LEVEL : ${userLevel}\n┃╰───────────────────\n┗━━━━━━━━━━━━━━━━━━━━┛`
+                resul = `â”â”â”â”â”â”â”â™¡ *LEVEL* â™¡â”â”â”â”â”â”â”â”“\nâ”ƒâ•­â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\nâ”ƒâ”‚âž¸ NAMA : ${pushname}\nâ”ƒâ”‚âž¸ NOMOR : wa.me/${sender.split("@")[0]}\nâ”ƒâ”‚âž¸ XP : ${userXp}/${requiredXp}\nâ”ƒâ”‚âž¸ LEVEL : ${userLevel}\nâ”ƒâ•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\nâ”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”›`
                enzet.sendMessage(from, resul, text, { quoted: mek})
                 .catch(async (err) => {
                         console.error(err)
@@ -1371,7 +1371,7 @@ break
 					teks = (args.length > 1) ? body.slice(8).trim() : ''
 					teks += '\n\n'
 					for (let mem of groupMembers) {
-						teks += `➸ @${mem.jid.split('@')[0]}\n`
+						teks += `âž¸ @${mem.jid.split('@')[0]}\n`
 						members_id.push(mem.jid)
 					}
 					mentions(teks, members_id, true)
@@ -1382,7 +1382,7 @@ break
 			    if (!isGroupAdmins) return reply(bot.only.admin())
 				if (!isBotGroupAdmins) return reply(only.badmin())
                 enzet.groupUpdateSubject(from, `${body.slice(9)}`)
-                enzet.sendMessage(from, '⟪ SUKSES ⟫ Mengubah Nama Grup', text, {quoted: mek})
+                enzet.sendMessage(from, 'âŸª SUKSES âŸ« Mengubah Nama Grup', text, {quoted: mek})
 					break
                 case 'setdesc':
                 if (!isRegistered) return reply(bot.only.noregis())                
@@ -1390,25 +1390,25 @@ break
 			    if (!isGroupAdmins) return reply(bot.only.admin())
 				if (!isBotGroupAdmins) return reply(only.badmin())
                 enzet.groupUpdateDescription(from, `${body.slice(9)}`)
-                enzet.sendMessage(from, '⟪ SUKSES ⟫ Mengubah Desk Grup', text, {quoted: mek})
+                enzet.sendMessage(from, 'âŸª SUKSES âŸ« Mengubah Desk Grup', text, {quoted: mek})
 					break
            case 'demote':
                 if (!isRegistered) return reply(bot.only.noregis())           
 					if (!isGroup) return reply(bot.only.groupo())
 					if (!isGroupAdmins) return reply(bot.only.admin())
 					if (!isBotGroupAdmins) return reply(only.badmin())
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('💤 *𝗧ag 𝘁arget 𝘆ang 𝗶ngin 𝗱i Demote!*')
+					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('ðŸ’¤ *ð—§ag ð˜arget ð˜†ang ð—¶ngin ð—±i Demote!*')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
 						teks = ''
 						for (let _ of mentioned) {
-							teks += `*Jabatan Anda Di Copot*🏃 :\n`
+							teks += `*Jabatan Anda Di Copot*ðŸƒ :\n`
 							teks += `@_.split('@')[0]`
 						}
 						mentions(teks, mentioned, true)
 						enzet.groupDemoteAdmin(from, mentioned)
 					} else {
-						mentions(`Atas Perintah Admin Grup\n@${mentioned[0].split('@')[0]} Jabatan Anda Sebagai Admin Di Grup Telah Di Copot🏃`, mentioned, true)
+						mentions(`Atas Perintah Admin Grup\n@${mentioned[0].split('@')[0]} Jabatan Anda Sebagai Admin Di Grup Telah Di CopotðŸƒ`, mentioned, true)
 						enzet.groupDemoteAdmin(from, mentioned)
 					}
 					break
@@ -1417,7 +1417,7 @@ break
 					if (!isGroup) return reply(bot.only.groupo())
 					if (!isGroupAdmins) return reply(bot.only.admin())
 					if (!isBotGroupAdmins) return reply(only.badmin())
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('𝗧𝗮𝗴 ??𝗮??𝗴𝗲𝘁 𝘆𝗮𝗻𝗴 𝗶𝗻𝗴𝗶𝗻 𝗱𝗶 𝘁𝗲𝗻𝗱𝗮𝗻𝗴!')
+					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('ð—§ð—®ð—´ ??ð—®??ð—´ð—²ð˜ ð˜†ð—®ð—»ð—´ ð—¶ð—»ð—´ð—¶ð—» ð—±ð—¶ ð˜ð—²ð—»ð—±ð—®ð—»ð—´!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
 						teks = ''
@@ -1440,14 +1440,14 @@ break
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di jadi admin!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
-						teks = '𝐏erintah 𝐃i 𝐓erima, 𝐇apus 𝐏esan :\n'
+						teks = 'ðerintah ðƒi ð“erima, ð‡apus ðesan :\n'
 						for (let _ of mentioned) {
 							teks += `@${_[0].split('@')[0]}\n`
 						}
 						mentions(teks, mentioned, true)
 						enzet.deleteMessage(from, mentioned)
 					} else {
-						mentions(`𝐏erintah 𝐃i 𝐓erima, 𝐇apus 𝐏esan : @${mentioned[0].split('@')[0]}`, mentioned, true)
+						mentions(`ðerintah ðƒi ð“erima, ð‡apus ðesan : @${mentioned[0].split('@')[0]}`, mentioned, true)
 						enzet.deleteMessage(from, mentioned)
 					}
 					break
@@ -1456,10 +1456,10 @@ break
 					if (!isGroup) return reply(bot.only.groupo())
 					if (!isGroupAdmins) return reply(bot.only.admin())
 					if (!isBotGroupAdmins) return reply(only.badmin())
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('💤 Tag Target Yang Ingin Di Tendang!')
+					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('ðŸ’¤ Tag Target Yang Ingin Di Tendang!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
-						teks = '𝐁ismillah 𝐊epala𝐌u 𝐇edsot\n'
+						teks = 'ðismillah ðŠepalaðŒu ð‡edsot\n'
 						for (let _ of mentioned) {
 							teks += `@${_.split('@')[0]}\n`
 						}
@@ -1468,7 +1468,7 @@ break
 						mentions(teks, mentioned, true)
 						enzet.groupAdd(from, [num])
 					} else {
-						mentions(`𝐁erhasil 𝐌eng 𝐇edsot 𝐏ala𝐍ya  : @${mentioned[0].split('@')[0]}`, mentioned, true)
+						mentions(`ðerhasil ðŒeng ð‡edsot ðalaðya  : @${mentioned[0].split('@')[0]}`, mentioned, true)
 						enzet.groupRemove(from, mentioned)
 						}
 					break
@@ -1508,7 +1508,7 @@ break
                 reply(bot.wait())
                 anu = await fetchJson(`https://api.vhtear.com/ytmp3?query=${body.slice(6)}&apikey=${VhtearKey}`)
                if (anu.error) return reply(anu.error)
-                 infomp3 = `*「❗」 Lagu Ditemukan*\n➸ Judul : ${anu.result.title}\n➸ Durasi : ${anu.result.duration}\n➸ Size : ${anu.result.size}\n\n💤 *[ WAIT ] Lagi Memeroses Boss*`
+                 infomp3 = `*ã€Œâ—ã€ Lagu Ditemukan*\nâž¸ Judul : ${anu.result.title}\nâž¸ Durasi : ${anu.result.duration}\nâž¸ Size : ${anu.result.size}\n\nðŸ’¤ *[ WAIT ] Lagi Memeroses Boss*`
                 buffer = await getBuffer(anu.result.image)
                 lagu = await getBuffer(anu.result.mp3)
                 enzet.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
@@ -1628,7 +1628,7 @@ break
                       const one = 999999999
                       addLevelingXp(sender, one)
                       addLevelingLevel(sender, 99)
-                      reply(`karena Bot memberikan ${one}Xp 💀`)
+                      reply(`karena Bot memberikan ${one}Xp ðŸ’€`)
                       }else{
                       const mining = Math.ceil(Math.random() * 10000)
                       addLevelingXp(sender, mining)
@@ -1640,7 +1640,7 @@ break
 				if (!isRegistered) return reply(bot.only.noregis())
 			data = await fetchJson(`https://tobz-api.herokuapp.com/api/moddroid?q=${body.slice(10)}&apikey=${TobzKey}`)
 			hepi = data.result[0] 
-			teks = `*➸ Nama*: ${data.result[0].title}\n*➸ publisher*: ${hepi.publisher}\n*➸ mod info:* ${hepi.mod_info}\n*➸ size*: ${hepi.size}\n*➸ latest version*: ${hepi.latest_version}\n*➸ genre*: ${hepi.genre}\n*➸ link:* ${hepi.link}\n*➸ download*: ${hepi.download}`
+			teks = `*âž¸ Nama*: ${data.result[0].title}\n*âž¸ publisher*: ${hepi.publisher}\n*âž¸ mod info:* ${hepi.mod_info}\n*âž¸ size*: ${hepi.size}\n*âž¸ latest version*: ${hepi.latest_version}\n*âž¸ genre*: ${hepi.genre}\n*âž¸ link:* ${hepi.link}\n*âž¸ download*: ${hepi.download}`
 			buffer = await getBuffer(hepi.image)
 			enzet.sendMessage(from, buffer, image, {quoted: mek, caption: `${teks}`})
 			break
@@ -1649,7 +1649,7 @@ break
 				if (!isRegistered) return reply(bot.only.noregis())
 			data = await fetchJson(`https://tobz-api.herokuapp.com/api/happymod?q=${body.slice(10)}&apikey=${TobzKey}`)
 			hupo = data.result[0] 
-			teks = `*➸ Nama*: ${data.result[0].title}\n*➸ version*: ${hupo.version}\n*➸ size:* ${hupo.size}\n*➸ root*: ${hupo.root}\n*➸ purchase*: ${hupo.price}\n*➸ link*: ${hupo.link}\n*➸ download*: ${hupo.download}`
+			teks = `*âž¸ Nama*: ${data.result[0].title}\n*âž¸ version*: ${hupo.version}\n*âž¸ size:* ${hupo.size}\n*âž¸ root*: ${hupo.root}\n*âž¸ purchase*: ${hupo.price}\n*âž¸ link*: ${hupo.link}\n*âž¸ download*: ${hupo.download}`
 			buffer = await getBuffer(hupo.image)
 			enzet.sendMessage(from, buffer, image, {quoted: mek, caption: `${teks}`})
 			break
@@ -1662,16 +1662,16 @@ break
 					n = JSON.parse(JSON.stringify(data));
 					nimek =  n[Math.floor(Math.random() * n.length)];
 					pok = await getBuffer(nimek)
-					enzet.sendMessage(from, pok, image, { quoted: mek, caption: `*⟪ Pinterest ⟫*`})
+					enzet.sendMessage(from, pok, image, { quoted: mek, caption: `*âŸª Pinterest âŸ«*`})
 					break 
                 case 'beritahoax':
                   
 				if (!isRegistered) return reply(bot.only.noregis())
                     enzet.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/infohoax`, {method: 'get'})
-					teks = '♡───────────♡\n'
+					teks = 'â™¡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â™¡\n'
 					for (let i of data.result) {
-						teks += `*➸ Gambar* : ${i.image}\n*➸ Title* : ${i.title}\n*➸ link* : ${i.link}\n*➸ tag* : ${i.tag}\n♡───────────♡\n`
+						teks += `*âž¸ Gambar* : ${i.image}\n*âž¸ Title* : ${i.title}\n*âž¸ link* : ${i.link}\n*âž¸ tag* : ${i.tag}\nâ™¡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â™¡\n`
 					}
 					reply(teks.trim())
 					break
@@ -1680,9 +1680,9 @@ break
 				if (!isRegistered) return reply(bot.only.noregis())
                     brien = body.slice(9)
 					brainly(`${brien}`).then(res => {
-					teks = '♡───────────♡\n'
+					teks = 'â™¡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â™¡\n'
 					for (let Y of res.data) {
-						teks += `\n*「 BRAINLY 」*\n\n*➸ Pertanyaan:* ${Y.pertanyaan}\n\n*➸ Jawaban:* ${Y.jawaban[0].text}\n♡───────────♡\n`
+						teks += `\n*ã€Œ BRAINLY ã€*\n\n*âž¸ Pertanyaan:* ${Y.pertanyaan}\n\n*âž¸ Jawaban:* ${Y.jawaban[0].text}\nâ™¡â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â™¡\n`
 					}
 					enzet.sendMessage(from, teks, text, {quoted: mek, detectLinks: false})
                         console.log(res)
@@ -1691,7 +1691,7 @@ break
 				case 'info':
 					me = enzet.user
 					uptime = process.uptime()
-					teks = `*➸ Nama bot* : _${me.name}_\n*➸ OWNER* : _ENZET BOT_\n*➸ AUTHOR* : _${ownerName}_\n*➸ Nomor Bot* : _@${me.jid.split('@')[0]}_\n*➸ Prefix* : ${prefix}\n*➸ Total Block Contact* : _${blocked.length}_\n*➸ The bot is active on* : _${kyun(uptime)}_`
+					teks = `*âž¸ Nama bot* : _${me.name}_\n*âž¸ OWNER* : _ENZET BOT_\n*âž¸ AUTHOR* : _${ownerName}_\n*âž¸ Nomor Bot* : _@${me.jid.split('@')[0]}_\n*âž¸ Prefix* : ${prefix}\n*âž¸ Total Block Contact* : _${blocked.length}_\n*âž¸ The bot is active on* : _${kyun(uptime)}_`
 					buffer = await getBuffer(me.imgUrl)
 					enzet.sendMessage(from, buffer, image, {caption: teks, contextInfo:{mentionedJid: [me.jid]}})
 					break
@@ -1704,7 +1704,7 @@ break
 case 'tahta':
 
 if (!isRegistered) return reply(bot.only.noregis())
-if (args.length < 1) return reply(`*「❗」Contoh : ${prefix}Tahta Enzet*`)
+if (args.length < 1) return reply(`*ã€Œâ—ã€Contoh : ${prefix}Tahta Enzet*`)
 har = body.slice(12)
 reply(bot.wait())
 buffer = await getBuffer(`https://api.vhtear.com/hartatahta?text=${har}&apikey=${VhtearKey}`)
@@ -1713,7 +1713,7 @@ break
 case 'cloudtext':
                   
 				if (!isRegistered) return reply(bot.only.noregis())
-if (args.length < 1) return reply(`「❗」Contoh : ${prefix}cloudtext Putra`)
+if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}cloudtext Putra`)
 cloud = body.slice(11)
 reply(bot.wait())
 buffer = await getBuffer(`https://api.xteam.xyz/textpro/cloudtext?text=${cloud}&APIKEY=${XteamKey}`)
@@ -1732,14 +1732,14 @@ break
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						buff = await enzet.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							enzet.sendMessage(_.jid, buff, image, {caption: `*「 ILHAM ENZET 」*\n\n${body.slice(4)}`})
+							enzet.sendMessage(_.jid, buff, image, {caption: `*ã€Œ ILHAM ENZET ã€*\n\n${body.slice(4)}`})
 						}
 						reply('')
 					} else {
 						for (let _ of anu) {
-							sendMess(_.jid, `*「 ILHAM ENZET 」*\n\n${body.slice(4)}`)
+							sendMess(_.jid, `*ã€Œ ILHAM ENZET ã€*\n\n${body.slice(4)}`)
 						}
-						reply('*「 SUKSES BOSKU 」*')
+						reply('*ã€Œ SUKSES BOSKU ã€*')
 					}
 					break
 				case 'bcgc':
@@ -1751,14 +1751,14 @@ break
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						buff = await enzet.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							enzet.sendMessage(_.jid, buff, image, {caption: `*「 BC GROUP 」*\n\n➸ Dari Grup : ${groupName}\n➸ Pengirim : wa.me/${(sender.split('@')[0])}\n➸ Pesan : ${body.slice(6)}`})
+							enzet.sendMessage(_.jid, buff, image, {caption: `*ã€Œ BC GROUP ã€*\n\nâž¸ Dari Grup : ${groupName}\nâž¸ Pengirim : wa.me/${(sender.split('@')[0])}\nâž¸ Pesan : ${body.slice(6)}`})
 						}
-						reply('*「 SUKSES BOSKU 」*')
+						reply('*ã€Œ SUKSES BOSKU ã€*')
 					} else {
 						for (let _ of anu) {
-							sendMess(_.jid, `*「 BC GROUP 」*\n\n➸ Dari Grup : ${groupName}\n➸ Pengirim : wa.me/${(sender.split('@')[0])}\n➸ Pesan : ${body.slice(6)}`)
+							sendMess(_.jid, `*ã€Œ BC GROUP ã€*\n\nâž¸ Dari Grup : ${groupName}\nâž¸ Pengirim : wa.me/${(sender.split('@')[0])}\nâž¸ Pesan : ${body.slice(6)}`)
 						}
-						reply('*「 SUKSES BOSKU 」*')
+						reply('*ã€Œ SUKSES BOSKU ã€*')
 					}
 					break
 					case 'setreply':
@@ -1772,7 +1772,7 @@ break
 					if (args.length < 1) return
 					if (!isOwner) return reply(only.ownerb())
 					prefix = args[0]
-					reply(`*「 SUCCES 」* _Prefix Telah Terganti Menjadi_ ➸ : ${prefix}`)
+					reply(`*ã€Œ SUCCES ã€* _Prefix Telah Terganti Menjadi_ âž¸ : ${prefix}`)
 					break
 				case 'clearall':
 					if (!isOwner) return reply(only.ownerb())
@@ -1803,12 +1803,12 @@ break
 					enmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await enzet.downloadAndSaveMediaMessage(enmedia)
 					await enzet.updateProfilePicture(botNumber, media)
-					reply('*Makasih Profil Barunya Bosku* 🦂')
+					reply('*Makasih Profil Barunya Bosku* ðŸ¦‚')
 					break
 				case 'clone':
 					if (!isGroup) return reply(bot.only.groupo())
 					if (!isOwner) return reply(bot.only.ownerg())
-					if (args.length < 1) return reply('💤 *TAG Yang Mau Di CLONE*')
+					if (args.length < 1) return reply('ðŸ’¤ *TAG Yang Mau Di CLONE*')
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag cvk')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
 					let { jid, id, notify } = groupMembers.fbot(x => x.jid === mentioned)
